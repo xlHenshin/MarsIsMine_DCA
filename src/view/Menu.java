@@ -7,12 +7,12 @@ public class Menu {
 
 	private PImage menu;
 	private PApplet app;
-	private int screen;
+	//private int screen;
 	
 	public Menu(PApplet app) {
 		
 		this.app=app;
-		screen=1;
+		//screen=1;
 		menu=app.loadImage("../Resources/menu.png");
 	}
 	
@@ -21,7 +21,9 @@ public class Menu {
 		app.image(menu, 0, 0);
 	}
 	
-	public void button() {
+	public int button() {
+		
+		int screen=1;
 		
 		if(app.mouseX>580 && app.mouseX<1036 && app.mouseY>445 && app.mouseY<518) {
 			screen=2;
@@ -32,15 +34,8 @@ public class Menu {
 		if(app.mouseX>652 && app.mouseX<966 && app.mouseY>680 && app.mouseY<746){
 			app.exit();
 		}
-	}
-
-	public int getScreen() {
+		
 		return screen;
 	}
-
-	public void setScreen(int screen) {
-		this.screen = screen;
-	}
-	
 	
 }

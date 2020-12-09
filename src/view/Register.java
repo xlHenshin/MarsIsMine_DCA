@@ -3,16 +3,21 @@ package view;
 import controlP5.ControlP5;
 import controlP5.Textfield;
 import controller.Controller;
+import exception.NameLenght;
+import exception.NoName;
 import processing.core.PApplet;
+import processing.core.PFont;
 import processing.core.PImage;
 
 public class Register {
 
 	private PApplet app;
 	private ControlP5 cp5;
+	private PFont fontText;
 	private Controller controller;
 	private PImage register;
-	private int screen;
+	
+	private boolean correct;
 	
 	private String [] inputs;
 	private String name;
@@ -21,28 +26,26 @@ public class Register {
 	public Register(PApplet app) {
 		
 		this.app=app;
-		screen=2;
+		//screen=2;
 		register=app.loadImage("../Resources/register.png");
 		controller = new Controller(app);
+		fontText=app.createFont("../Resources/Krungthep.tff", 62);
+		correct= false;
 		
 		cp5= new ControlP5(app);
 		inputs= new String[1];
 		
 		createText();
 		
-		
-		//cp5.addTextfield(inputs[0]).setPosition().setSize(290, 73).setAutoClear(true).setColorValue(app.color(255))
-		//.setColorActive(app.color(0,0,0,1)).setColorBackground(app.color(0,0,0,1)).setColorForeground(app.color(0,0,0,1))
-		//.setColor(app.color(0,0,0,255)).setColorCursor(app.color(0,0,0,255)).setFont(font).getCaptionLabel().hide();
 	}
 	
 	public void createText() {
 		
 		inputs[0] = "Name";
 		
-		cp5.addTextfield(inputs[0]).setPosition(256,366).setSize(500, 48).setAutoClear(true)
-		.setColorBackground(app.color(255,255,255)).setColorLabel(app.color(0)).setColorActive(app.color(0))
-		.setColorValueLabel(app.color(0));
+		cp5.addTextfield(inputs[0]).setPosition(256,366).setSize(684,95).setAutoClear(true)
+		.setColorBackground(app.color(0,0,0,1)).setColorActive(app.color(0,0,0,1))
+		.setColorValueLabel(app.color(0)).setFont(fontText);
 		
 	}
 	
@@ -50,7 +53,7 @@ public class Register {
 		cp5.get(Textfield.class, "Name").setText("");
 	}
 	
-	public void registerPlayer() {
+	public void registerPlayer() throws NoName, NameLenght{
 		
 		name=cp5.get(Textfield.class, "Name").getText();
 		
@@ -62,11 +65,12 @@ public class Register {
 		}
 		
 		if(noName==true) {
-			
+			throw new NoName("There is NO name");
 		}else if (name.length()>10) {
-			
+			throw new NameLenght("Name is too long");
 		}else {
 			controller.registerPlayer(name);
+			correct=true;
 		}
 	}
 	
@@ -75,25 +79,35 @@ public class Register {
 		app.image(register, 0, 0);
 	}
 	
-	public void button() {
+	public int button() {
+		int screen=2;
 		
 		if(app.mouseX>250 && app.mouseX<570 && app.mouseY>530 && app.mouseY<605) {
-			screen=1;
-			registerPlayer();
+			
+			if (correct==true) {
+				
+				screen=3;
+			}
+			try {
+				registerPlayer();
+			} catch (NoName e) {
+				// TODO Auto-generated catch block
+				System.out.println("There is no name in the text field");
+			} catch (NameLenght e) {
+				// TODO: handle exception
+				System.out.println("Name is too long");
+			}
+			
 		}
 		
 		if(app.mouseX>630 && app.mouseX<945 && app.mouseY>530 && app.mouseY<605) {
 			screen=1;
 		}
-	}
-
-	public int getScreen() {
+		
 		return screen;
 	}
 
-	public void setScreen(int screen) {
-		this.screen = screen;
-	}
+
 
 	public ControlP5 getCp5() {
 		return cp5;

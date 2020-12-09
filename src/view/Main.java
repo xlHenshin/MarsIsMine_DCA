@@ -47,6 +47,7 @@ public class Main extends PApplet{
 			
 		case 3:
 			
+			register.getCp5().hide();
 			break;
 			
 		case 4:
@@ -76,13 +77,13 @@ public class Main extends PApplet{
 		case 1:
 			
 			menu.button();
-			screen=menu.getScreen();
+			screen=menu.button();
 			break;
 			
 		case 2:
 			
 			register.button();
-			screen=register.getScreen();
+			screen=register.button();
 			break;
 			
 		case 3:
