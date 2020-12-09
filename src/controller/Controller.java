@@ -13,4 +13,9 @@ public class Controller {
 		this.app=app;
 		logic= Logic.getInstance(app);
 	}
+
+	public void registerPlayer(String name) {
+		// TODO Auto-generated method stub
+		logic.registerPlayer(name);
+	}
 }

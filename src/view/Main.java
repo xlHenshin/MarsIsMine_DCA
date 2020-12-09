@@ -5,7 +5,7 @@ import processing.core.PApplet;
 public class Main extends PApplet{
 
 	private Menu menu;
-	
+	private Register register;
 	
 	private int screen;
 	
@@ -25,6 +25,7 @@ public class Main extends PApplet{
 		screen=1;
 		
 		menu= new Menu(this);
+		register= new Register(this);
 	}
 	
 	public void draw() {
@@ -35,10 +36,13 @@ public class Main extends PApplet{
 		case 1:
 			
 			menu.drawScreen();
+			register.getCp5().hide();
 			break;
 			
 		case 2:
 			
+			register.drawScreen();
+			register.getCp5().show();
 			break;
 			
 		case 3:
@@ -72,10 +76,13 @@ public class Main extends PApplet{
 		case 1:
 			
 			menu.button();
+			screen=menu.getScreen();
 			break;
 			
 		case 2:
 			
+			register.button();
+			screen=register.getScreen();
 			break;
 			
 		case 3:
