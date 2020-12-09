@@ -4,7 +4,7 @@ import processing.core.PApplet;
 
 public class Main extends PApplet{
 
-	//Hola
+	//Hello there
 	private Menu menu;
 	private Register register;
 	
