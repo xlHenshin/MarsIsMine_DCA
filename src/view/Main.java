@@ -4,6 +4,7 @@ import processing.core.PApplet;
 
 public class Main extends PApplet{
 
+	//Hola
 	private Menu menu;
 	private Register register;
 	
@@ -52,10 +53,12 @@ public class Main extends PApplet{
 			
 		case 4:
 			
+			register.getCp5().hide();
 			break;
 			
 		case 5:
 			
+			register.getCp5().hide();
 			break;
 
 		default:

@@ -49,10 +49,6 @@ public class Register {
 		
 	}
 	
-	public void cleanText() {
-		cp5.get(Textfield.class, "Name").setText("");
-	}
-	
 	public void registerPlayer() throws NoName, NameLenght{
 		
 		name=cp5.get(Textfield.class, "Name").getText();
@@ -84,10 +80,7 @@ public class Register {
 		
 		if(app.mouseX>250 && app.mouseX<570 && app.mouseY>530 && app.mouseY<605) {
 			
-			if (correct==true) {
-				
-				screen=3;
-			}
+			
 			try {
 				registerPlayer();
 			} catch (NoName e) {
@@ -96,6 +89,12 @@ public class Register {
 			} catch (NameLenght e) {
 				// TODO: handle exception
 				System.out.println("Name is too long");
+			}
+			
+			if (correct==true) {
+				
+				screen=3;
+				cp5.get(Textfield.class, "Name").setText("");
 			}
 			
 		}
