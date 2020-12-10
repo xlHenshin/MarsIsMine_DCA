@@ -11,7 +11,7 @@ public class Gameplay {
 	public Gameplay(PApplet app) {
 		
 		this.app=app;
-		game=app.loadImage("../Resources/game.png");
+		game=app.loadImage("../Resources/map1.png");
 	}
 	
 	public void drawScreen() {
