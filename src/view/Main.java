@@ -4,7 +4,10 @@ import processing.core.PApplet;
 
 public class Main extends PApplet{
 
-	//Hola
+	//Hello there
+	
+	//general kenobi
+	
 	private Menu menu;
 	private Register register;
 	private Gameplay gameplay;
