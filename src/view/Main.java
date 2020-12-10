@@ -7,6 +7,7 @@ public class Main extends PApplet{
 	//Hola
 	private Menu menu;
 	private Register register;
+	private Gameplay gameplay;
 	
 	private int screen;
 	
@@ -27,6 +28,7 @@ public class Main extends PApplet{
 		
 		menu= new Menu(this);
 		register= new Register(this);
+		gameplay= new Gameplay(this);
 	}
 	
 	public void draw() {
@@ -48,6 +50,7 @@ public class Main extends PApplet{
 			
 		case 3:
 			
+			gameplay.drawScreen();
 			register.getCp5().hide();
 			break;
 			
