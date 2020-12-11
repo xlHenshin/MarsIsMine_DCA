@@ -87,6 +87,8 @@ public class Logic {
 
 		for (int i = 0; i < star.size(); i++) {
 			star.get(i).setMoveXStar(enemy.get(0).isMoveXEnemy());
+			Thread starMove = new Thread(star.get(i));
+			starMove.start();
 		}
 
 		time=true;
@@ -274,6 +276,9 @@ public class Logic {
 				loseTouch = true;
 				loseGame();
 				revy.setPosXCollision(0);
+			}
+			if (app.dist(revy.getPosXCollision()+ 66, revy.getPosY()+ 140, enemy.get(i).getPosXEnemy()+ 50 , enemy.get(i).getPosYEnemy()) <= 40) {
+				enemy.remove(i);
 			}
 			
 		}		

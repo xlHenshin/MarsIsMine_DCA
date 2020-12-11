@@ -4,7 +4,7 @@ import processing.core.PApplet;
 import processing.core.PImage;
 
 
-public class Star {
+public class Star implements Runnable{
 
 	private PApplet app;
 
@@ -31,12 +31,15 @@ public class Star {
 
 		app.image(star, posXStar, posYStar);	
 
+	}
+	
+	public void moveStar() {
 		if (moveXStar == true) {
 			posXStar = posXStar - 15;
-			//System.out.println(posXStar);
 		}	
-
-	} 
+	}
+	
+	
 
 	public int getposXStar () {
 		return posXStar;
@@ -58,6 +61,11 @@ public class Star {
 
 	public void setMoveXStar(boolean moveXStar) {
 		this.moveXStar = moveXStar;
+	}
+
+	@Override
+	public void run() {
+		moveStar();
 	}
 	
 	
