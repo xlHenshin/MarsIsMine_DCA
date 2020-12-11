@@ -67,44 +67,20 @@ public class Player implements Comparable<Player> {
 		this.time = time;
 	}
 
-	
-	 public static class Comparators {
-
-	        public static Comparator<Player> SCORE = new Comparator<Player>() {
-	            @Override
-	            public int compare(Player o1, Player o2) {
-	                return o1.score-o2.score;
-	            }
-	        };
-	        
-	        public static Comparator<Player> NAME = new Comparator<Player>() {
-	            @Override
-	            public int compare(Player o1, Player o2) {
-	                return o1.name.compareTo(o2.name);
-	            }
-	        };
-	        
-	        public static Comparator<Player> TIME = new Comparator<Player>() {
-	            @Override
-	            public int compare(Player o1, Player o2) {
-	                return o1.time.compareTo(o2.time);
-	            }
-	        };
-	        public static Comparator<Player> DATE = new Comparator<Player>() {
-	            @Override
-	            public int compare(Player o1, Player o2) {
-	                return o1.date2.compareTo(o2.date2);
-	            }
-	        };
-	       
-    };
-	
-
-
 
 	@Override
 	public int compareTo(Player o) {
 		
-		return Comparators.SCORE.compare(this, o);
+		return o.getScore()-this.score;
 	}
-	 }
+
+	public int getScore() {
+		return score;
+	}
+
+	public void setScore(int score) {
+		this.score = score;
+	}
+
+	
+}

@@ -332,23 +332,23 @@ public class Logic {
 
 	public void organizeByName()
 	{
-		Collections.sort(player, Player.Comparators.NAME);
+		Collections.sort(player, byname);
 	}
 	
 	public void organizeByScore()
 	{
-		Collections.sort(player, Player.Comparators.SCORE);
+		Collections.sort(player);
 	}
 	
 	public void organizeByDate()
 	{
-		Collections.sort(player, Player.Comparators.DATE);
+		Collections.sort(player, bydate);
 	}
 	
 	public void organizeByTime()
 	{
-		Collections.sort(player, Player.Comparators.TIME);	
-}
+		Collections.sort(player, bytime);	
+	}
 	public void setPosXRevy(int posXCollision) {
 		revy.setPosXCollision(posXCollision);
 
