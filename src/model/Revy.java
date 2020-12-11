@@ -53,7 +53,7 @@ public class Revy extends Thread {
 
 	public void draw() {
 		cc.y= 3.5f;
-		if(position.x<=-1 || position.x>=1190) {
+		if(position.x<=(-1+position.x)|| position.x>=1190) {
 			cc.x *=-1;
 			vel.x*=-1;
 		}
@@ -77,16 +77,18 @@ public class Revy extends Thread {
 	}
 
 	public void move() {
+		
 		notMove();
+		
 		if (move == true) {
 
 			if(key==37) {
-				vel.x=-8;
+				vel.x=-5;
 				cc.x=0.5f;
 			}
 
 			if(key==39) {
-				vel.x=8;
+				vel.x=5;
 				cc.x=-0.5f;
 			}
 
