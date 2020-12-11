@@ -25,6 +25,7 @@ public class Gameplay {
 		app.image(game, posX, 0);
 		controlGame.drawGame();
 		controlGame.drawEnemy();
+		controlGame.drawStar();
 		if (moveScreen == true) {
 			if (controlGame.getPosX()>=50 && posX >= -2370) {
 				controlGame.isMoving(true);
@@ -44,7 +45,27 @@ public class Gameplay {
 		
 		if (controlGame.getPosY()+ 140 >= 640) {
 			controlGame.fallRevy(true);
-			}
+			}		
+	
+	}
+	
+	public void platformCollision() {
+		
+		if (moveScreen) {
+			
+		}
+		
+		if (moveScreen) {
+			
+		}
+		
+		if (moveScreen) {
+			
+		}
+		
+		if (moveScreen) {
+			
+		}
 	}
 
 
