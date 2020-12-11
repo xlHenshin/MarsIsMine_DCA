@@ -3,6 +3,7 @@ package view;
 import controlP5.ControlP5;
 import controlP5.Textfield;
 import controller.Controller;
+import controller.ControllerRegister;
 import exception.NameLenght;
 import exception.NoName;
 import processing.core.PApplet;
@@ -14,7 +15,7 @@ public class Register {
 	private PApplet app;
 	private ControlP5 cp5;
 	private PFont fontText;
-	private Controller controller;
+	private ControllerRegister controller;
 	private PImage register;
 	
 	private boolean correct;
@@ -28,7 +29,7 @@ public class Register {
 		this.app=app;
 		//screen=2;
 		register=app.loadImage("../Resources/register.png");
-		controller = new Controller(app);
+		controller = new ControllerRegister(app);
 		fontText=app.createFont("../Resources/Krungthep.tff", 62);
 		correct= false;
 		

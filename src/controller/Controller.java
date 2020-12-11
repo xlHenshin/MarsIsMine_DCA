@@ -14,15 +14,17 @@ public class Controller {
 		logic= Logic.getInstance(app);
 	}
 
-	public void registerPlayer(String name) {
-		// TODO Auto-generated method stub
-		logic.registerPlayer(name);
-	}
 	
 	public void drawGame() {
 		logic.drawGame();
 	}
 	public void getKey(int c) {
 		logic.getKey(c);
+	}
+	public void notMove(int c) {
+		logic.notMove(c);
+	}
+	public int getPosX () {
+		return logic.getPosX();
 	}
 }
