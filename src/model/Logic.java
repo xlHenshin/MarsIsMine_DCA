@@ -39,6 +39,7 @@ public class Logic {
 	} //CONSTRUCTOR
 
 
+
 	public static Logic getInstance(PApplet app) {
 		if(oneInstance == null) {
 			oneInstance = new Logic(app);

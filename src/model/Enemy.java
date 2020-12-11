@@ -44,14 +44,21 @@ public class Enemy implements Runnable  {
 		
 		if (posYEnemy==183) {
 			
+
+			if (posXEnemy>= 1173 || posXEnemy<= 816) {
+				dir*=-1;
+				System.out.println("1 cambia");
+
 			if (posXEnemy >= 1103 + moveX || posXEnemy<= 790 + moveX) {
 				dir *= -1;
+
 			}
 		}
 		if (posYEnemy==450) {
 			
 			if (posXEnemy>= 1518 + moveX || posXEnemy<= 987  + moveX) {
 				dir*=-1;
+				System.out.println("2 cambia");
 			}
 		}
 		
@@ -59,6 +66,7 @@ public class Enemy implements Runnable  {
 			
 			if (posXEnemy>= 1716  + moveX || posXEnemy<= 1359  + moveX) {
 				dir*=-1;
+				System.out.println("3 cambia");
 			}
 		}
 		
@@ -66,6 +74,7 @@ public class Enemy implements Runnable  {
 			
 			if (posXEnemy>= 2260  + moveX || posXEnemy<= 1903  + moveX) {
 				dir*=-1;
+				System.out.println("4 cambia");
 			}
 		}
 		
@@ -73,9 +82,12 @@ public class Enemy implements Runnable  {
 			
 			if (posXEnemy>= 2757  + moveX || posXEnemy<= 2146  + moveX) {
 				dir*=-1;
+				System.out.println("5 cambia");
 			}
 		}
 		
+		
+		}
 	}
 	
 	public void drawEnemy () {
