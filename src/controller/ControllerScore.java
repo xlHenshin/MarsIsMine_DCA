@@ -19,4 +19,28 @@ public class ControllerScore {
 		
 		logic.drawData();
 	}
+	
+	public void sortNames()
+	{
+		logic.organizeByName();
+		logic.drawData();
+	}
+	
+	public void sortTime()
+	{
+		logic.organizeByTime();
+		logic.drawData();
+	}
+	
+	public void sortDate()
+	{
+		logic.organizeByDate();
+		logic.drawData();
+	}
+	
+	public void sortScore()
+	{
+		logic.organizeByScore();
+		logic.drawData();
+	}
 }
