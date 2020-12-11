@@ -65,9 +65,6 @@ public class Gameplay {
 
 		if (app.dist(controlGame.getXCol()+66, controlGame.getPosY()+ 140, 701, 600)<= 20) {
 			controlGame.fallRevy(true);
-			System.out.println("Te caiste");
-			
-			throw new Lose ("You Lose");
 		}
 		 else {
 			controlGame.fallRevy(false);
@@ -80,6 +77,7 @@ public class Gameplay {
 			throw new Lose("Perdiste");
 			}		
 		}
+	}
 	
 	public void ending() {
 		
