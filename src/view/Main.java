@@ -12,6 +12,8 @@ public class Main extends PApplet{
 	private Register register;
 	private Gameplay gameplay;
 	private Score score;
+	private Win win;
+	private Lose lose;
 	
 	private int screen;
 	
@@ -28,17 +30,20 @@ public class Main extends PApplet{
 	
 	public void setup() {
 		
-		screen=3;
+		screen=1;
 		
 		menu= new Menu(this);
 		register= new Register(this);
 		gameplay= new Gameplay(this);
 		score= new Score(this);
+		win = new Win (this);
+		lose = new Lose (this);
 	}
 	
 	public void draw() {
 		
 		background(0);
+		
 		
 		switch (screen) {
 		case 1:
@@ -57,6 +62,7 @@ public class Main extends PApplet{
 			
 			gameplay.drawScreen();
 			register.getCp5().hide();
+			screen = gameplay.getScreen();
 			break;
 			
 		case 4:
@@ -69,7 +75,6 @@ public class Main extends PApplet{
 			
 			register.getCp5().hide();
 			break;
-
 		default:
 			break;
 		}
@@ -102,10 +107,7 @@ public class Main extends PApplet{
 		case 4:
 			
 			break;
-			
-		case 5:
-			
-			break;
+
 
 		default:
 			break;

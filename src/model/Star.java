@@ -12,13 +12,17 @@ public class Star {
 
 	private int posXStar;
 	private int posYStar;
+	private int moveX;
+	private boolean moveXStar;
 
-	public Star (PApplet app , int posXStar, int posYStar) {
+	public Star(PApplet app , int posXStar, int posYStar) {
 
 		this.app=app;
 
 		this.posXStar=posXStar;
 		this.posYStar=posYStar;
+		
+		moveXStar= false;
 
 		star=app.loadImage("../Resources/STAR.png");
 	} //CONSTRUCTOR
@@ -27,6 +31,10 @@ public class Star {
 
 		app.image(star, posXStar, posYStar);	
 
+		if (moveXStar == true) {
+			posXStar = posXStar - 15;
+			//System.out.println(posXStar);
+		}	
 
 	} 
 
@@ -43,5 +51,15 @@ public class Star {
 	public void setPosYStar () {
 		this.posYStar = posYStar;
 	}
+
+	public boolean isMoveXStar() {
+		return moveXStar;
+	}
+
+	public void setMoveXStar(boolean moveXStar) {
+		this.moveXStar = moveXStar;
+	}
+	
+	
 
 } // STAR
