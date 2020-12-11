@@ -76,9 +76,6 @@ public class Main extends PApplet{
 		
 	}
 	
-	public void keyPressed() {
-		
-	}
 	
 	public void mousePressed() {
 		
@@ -113,6 +110,10 @@ public class Main extends PApplet{
 		default:
 			break;
 		}
+	}
+	public void keyPressed() {
+		int c = keyCode;
+		gameplay.getKey(c);
 	}
 
 }
