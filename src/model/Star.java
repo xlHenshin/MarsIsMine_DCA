@@ -12,7 +12,7 @@ public class Star {
 
 	private int posXStar;
 	private int posYStar;
-	private int moveX, changeX;
+	private int moveX;
 	private boolean moveXStar;
 
 	public Star(PApplet app , int posXStar, int posYStar) {
@@ -32,11 +32,9 @@ public class Star {
 		app.image(star, posXStar, posYStar);	
 
 		if (moveXStar == true) {
-			posXStar = posXStar - 8;
-			moveX = moveX - 8;
-		}
-		
-	
+			posXStar = posXStar - 11;
+			System.out.println(posXStar);
+		}	
 
 	} 
 
@@ -53,5 +51,15 @@ public class Star {
 	public void setPosYStar () {
 		this.posYStar = posYStar;
 	}
+
+	public boolean isMoveXStar() {
+		return moveXStar;
+	}
+
+	public void setMoveXStar(boolean moveXStar) {
+		this.moveXStar = moveXStar;
+	}
+	
+	
 
 } // STAR
