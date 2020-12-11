@@ -20,11 +20,13 @@ public class Gameplay {
 	private int posX;
 	private int screen;
 	private boolean moveScreen;
+	private boolean endGame;
 
 	public Gameplay(PApplet app) {
 		this.app=app;
 		controlGame = new Controller(app);
 		game=app.loadImage("../Resources/map1.png");
+		endGame=false;
 		
 		win=app.loadImage("../Resources/win.png");
 		lose=app.loadImage("../Resources/lose.png");
@@ -85,6 +87,14 @@ public class Gameplay {
 		
 		if (controlGame.getPosY()+ 140 >= 640) {
 			controlGame.fallRevy(true);
+
+
+			if (controlGame.getPosY()+140 >= 1000) {
+				
+				endGame=true;
+			throw new Lose("Perdiste");
+			}		
+
 		}
 		
 		if (controlGame.getPosY()+140 >= 1160 && loser == false) {
@@ -99,10 +109,13 @@ public class Gameplay {
 		System.out.println(controlGame.getXCol()+66);
 		if (controlGame.getXCol()+66 == 1159) {
 			controlGame.loseGame();
+
 		}
 	}
 	
 	public void ending() {
+		
+		
 		
 		switch (endCase) {
 		case 1:
@@ -120,6 +133,24 @@ public class Gameplay {
 		default:
 			break;
 		}
+	}
+	
+	public int button() {
+		
+		int screen=3;
+		
+		if(app.mouseX>771 && app.mouseX<1086 && app.mouseY>652 && app.mouseY<730) {
+			screen=1;
+			endGame=false;
+		}
+		
+		if (endGame==true) {
+			
+				
+		}
+		
+		
+		return screen;
 	}
 	
 	public void platformCollision() {

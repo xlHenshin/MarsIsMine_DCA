@@ -243,6 +243,14 @@ public class Logic {
 			Player newPlayer = new Player(temporalName, date, time, score, app);
 			player.add(newPlayer);
 
+
+			//System.out.println(">>> Name: " + player.get(i).getName() + " <<<");
+			//System.out.println(">>> Date: " + player.get(i).getDate2() + " <<<");
+			//System.out.println(">>> Time: " + player.get(i).getTime() + " <<<");
+			//System.out.println(">>> List size: " + player.size() + " <<<");
+		}
+		
+
 		}
 		/*
 			System.out.println(">>> Name: " + player.get(i).getName() + " <<<");
@@ -251,7 +259,7 @@ public class Logic {
 			System.out.println(">>> List size: " + player.size() + " <<<");
 		}*/
 
-	}
+	
 
 	public int getScore() {
 		return score;
@@ -261,6 +269,15 @@ public class Logic {
 
 	public void setScore(int score) {
 		this.score = score;
+
+	}
+	
+	public void drawData() {
+		
+		for (int i = 0; i < player.size(); i++) {
+			
+			player.get(i).drawData(200, 370+(100*i));
+		}
 	}
 
 
