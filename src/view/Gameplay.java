@@ -69,6 +69,8 @@ public class Gameplay {
 			// TODO Auto-generated catch block
 			endCase=2;
 		}
+		
+		
 
 	}
 
@@ -100,6 +102,7 @@ public class Gameplay {
 			throw new Lose("Perdiste");
 		}		
 	}
+	
 
 	public void winCase() throws Win {
 		if (controlGame.getXCol()+66 >= 1164) {
@@ -154,7 +157,14 @@ public class Gameplay {
 
 		if(app.mouseX>771 && app.mouseX<1086 && app.mouseY>652 && app.mouseY<730) {
 			screen=1;
-			reset();
+			
+			try {
+				reset();
+			} catch (RuntimeException e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+			
 			endGame=false;
 		}
 
