@@ -252,13 +252,21 @@ public class Logic {
 		
 
 		}
-		/*
-			System.out.println(">>> Name: " + player.get(i).getName() + " <<<");
-			System.out.println(">>> Date: " + player.get(i).getDate2() + " <<<");
-			System.out.println(">>> Time: " + player.get(i).getTime() + " <<<");
-			System.out.println(">>> List size: " + player.size() + " <<<");
-		}*/
 
+	public void reset() {
+		
+		revy = new Revy(50, 457, app);
+		enemy.clear();
+		star.clear();
+		temporalName="";
+		score=0;
+
+		min=0;
+		seg=0;
+		
+		createEnemy();
+		createStar ();
+	}
 	
 
 	public int getScore() {
@@ -276,7 +284,7 @@ public class Logic {
 		
 		for (int i = 0; i < player.size(); i++) {
 			
-			player.get(i).drawData(200, 370+(100*i));
+			player.get(i).drawData(180, 370+(50*i));
 		}
 	}
 
