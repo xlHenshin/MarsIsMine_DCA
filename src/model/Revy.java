@@ -15,9 +15,9 @@ public class Revy extends Thread {
 	private int width;
 	private int winX;
 	private PVector position;
-	private PVector velocity;
-	private PVector acceleration;
-	private boolean jumping;
+	private PVector vel;
+	private PVector cc;
+	private boolean jump;
 	private int health;
 	private int status;
 	private int key;
@@ -28,14 +28,11 @@ public class Revy extends Thread {
 
 		revy= app.loadImage("../Resources/revy1.png");
 		position= new PVector(x,y);
-		velocity= new PVector(0,0);
-		acceleration= new PVector(0,0);
+		vel= new PVector(0,0);
+		cc= new PVector(0,0);
 		floor= 500;
-		height=50;
-		width=50;
-		jumping=false;
-		health=3;
-		status=0;
+		height=40;
+		jump=false;
 		this.app = app;
 		speed=2;
 		move= false;
@@ -52,33 +49,28 @@ public class Revy extends Thread {
 	}
 
 	public void draw() {
-		acceleration.y= 3.5f;
-		if(position.x<=-1 || position.x>=750) {
-			if(position.x<-1) {
-				position.x=1;
-			}
-			acceleration.x = acceleration.x*-1;
-			velocity.x=velocity.x*-1;
+		cc.y= 3.5f;
+		if(position.x<=-1 || position.x>=1190) {
+			cc.x *=-1;
+			vel.x*=-1;
 		}
 
 		app.image(revy, position.x, position.y);
-		position.add(velocity);
-		velocity.add(acceleration);
+		position.add(vel);
+		vel.add(cc);
 
 
-		if(velocity.x>-1 && velocity.x<1) {
-			acceleration.x=0;
-			velocity.x=0;
+		if(vel.x>-1 && vel.x<1) {
+			cc.x=0;
+			vel.x=0;
 		}
 
 		if(position.y>=floor-height-5) {
-			jumping=false;
+			jump=false;
 			position.y=floor-height;
-			velocity.y=0;
-			acceleration.y=0;
-
+			vel.y=0;
+			cc.y=0;
 		}
-
 	}
 
 	public void move() {
@@ -86,18 +78,18 @@ public class Revy extends Thread {
 		if (move == true) {
 
 			if(key==37) {
-				velocity.x=-13;
-				acceleration.x=0.5f;
+				vel.x=-8;
+				cc.x=0.5f;
 			}
 
 			if(key==39) {
-				velocity.x=13;
-				acceleration.x=-0.5f;
+				vel.x=8;
+				cc.x=-0.5f;
 			}
 
-			if(key==38 && jumping==false) {
-				jumping=true;
-				velocity.y=-30;
+			if(key==38 && jump==false) {
+				jump=true;
+				vel.y=-40;
 			}
 		}
 	}
@@ -166,30 +158,6 @@ public class Revy extends Thread {
 
 	public void setPosition(PVector position) {
 		this.position = position;
-	}
-
-	public PVector getVelocity() {
-		return velocity;
-	}
-
-	public void setVelocity(PVector velocity) {
-		this.velocity = velocity;
-	}
-
-	public PVector getAcceleration() {
-		return acceleration;
-	}
-
-	public void setAcceleration(PVector acceleration) {
-		this.acceleration = acceleration;
-	}
-
-	public boolean isJumping() {
-		return jumping;
-	}
-
-	public void setJumping(boolean jumping) {
-		this.jumping = jumping;
 	}
 
 	public int getHealth() {

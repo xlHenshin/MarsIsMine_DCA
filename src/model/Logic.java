@@ -8,7 +8,7 @@ import processing.core.PApplet;
 public class Logic {
 
 	private PApplet app;
-	
+	private boolean move;
 	private ByName byname;
 	private ByTime bytime;
 	private ByDate bydate;
@@ -54,13 +54,28 @@ public class Logic {
 	
 	public void drawGame() {
 		revy.draw();
+		if (move == true) {
+			
 		Thread revyMove = new Thread(revy);
 		revyMove.start();
+	}
 	}
 	
 	public void getKey(int c) {
 		revy.setKey(c);
+		
+		if (c == 37 || c== 38 || c == 39) {
+			move=true;
+		}
 	}
+	
+	public void notMove (int c) {
+		int not = c;
+		if (not == 37 || not== 38 || not == 39) {
+			move=false;
+		}
+	}
+	
 
 	public LinkedList<Player> getPlayer() {
 		return player;
