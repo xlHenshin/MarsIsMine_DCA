@@ -81,12 +81,12 @@ public class Revy extends Thread {
 		if (move == true) {
 
 			if(key==37) {
-				vel.x=-8;
+				vel.x=-5;
 				cc.x=0.5f;
 			}
 
 			if(key==39) {
-				vel.x=8;
+				vel.x=5;
 				cc.x=-0.5f;
 			}
 
