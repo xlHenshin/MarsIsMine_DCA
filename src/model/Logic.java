@@ -73,7 +73,7 @@ public class Logic {
 	}
 
 	public void drawGame() {
-		revy.draw();
+		revy.drawChar();
 		if (move == true) {
 			Thread revyMove = new Thread(revy);
 			revyMove.start();
@@ -96,6 +96,7 @@ public class Logic {
 				score = score + 100;
 			}
 		}
+		app.fill(255);
 		app.textSize(40);
 		app.text("Score: "+ score, 700, 750);
 	}
@@ -107,7 +108,7 @@ public class Logic {
 	public void drawEnemy() {
 
 		for (int i = 0; i < enemy.size(); i++) {
-			enemy.get(i).drawEnemy();
+			enemy.get(i).drawChar();
 			Thread newEnemy = new Thread(enemy.get(i));
 			newEnemy.start();
 			//System.out.println(enemy.get(0).getMoveX());
@@ -223,7 +224,7 @@ public class Logic {
 				min += 1;
 			}
 		}
-
+		app.fill(255);
 		app.textSize(40);
 		app.text("Time: "+ min + ":" + seg, 400, 750);
 	}
@@ -315,6 +316,10 @@ public class Logic {
 
 	public void setLoseTouch(boolean loseTouch) {
 		this.loseTouch = loseTouch;
+	}
+	
+	public void setPosXRevy(int posXCollision) {
+		revy.setPosXCollision(posXCollision);
 	}
 
 

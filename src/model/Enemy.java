@@ -3,13 +3,13 @@ package model;
 import processing.core.PApplet;
 import processing.core.PImage;
 
-public class Enemy implements Runnable  {
-	
+public class Enemy implements Runnable, Paintable {
+
 	private PApplet app;
-	
+
 	private PImage enemyLeft;
 	private PImage enemyRight;
-	
+
 	private int posXEnemy;
 	private int posYEnemy;
 	private int speedEnemy;
@@ -17,79 +17,67 @@ public class Enemy implements Runnable  {
 	private int moveX;
 	private int changeX;
 	private boolean moveXEnemy;
-	
-	
+
+
 	public Enemy (PApplet app , int posXEnemy, int posYEnemy, int dir) {
-		
+
 		this.app=app;
 		this.posXEnemy=posXEnemy;
 		this.posYEnemy=posYEnemy;
 		this.dir=dir;
 		moveXEnemy = false;
-		
+
 		enemyLeft=app.loadImage("../Resources/enemyleft.png");
 		enemyRight=app.loadImage("../Resources/enemyright.png");
-		
+
 		int speedEnemy = 2;
-				
+
 	} //CONSTRUCTOR
-	
+
 	public void moveEnemy () {
 		if (moveXEnemy == true) {
 			posXEnemy = posXEnemy - 8;
 			moveX = moveX - 8;
 		}
-		
+
 		posXEnemy+= dir;
-		
+
 		if (posYEnemy==183) {
 
 			if (posXEnemy >= 1103 + moveX || posXEnemy<= 790 + moveX) {
 				dir *= -1;
 			}
 		}
-	
+
 		if (posYEnemy==450) {
-			
+
 			if (posXEnemy>= 1518 + moveX || posXEnemy<= 987  + moveX) {
 				dir*=-1;
 			}
 		}
-		
+
 		if (posYEnemy==184) {
-			
+
 			if (posXEnemy>= 1716  + moveX || posXEnemy<= 1359  + moveX) {
 				dir*=-1;
 			}
 		}
-		
+
 		if (posYEnemy==148) {
-			
+
 			if (posXEnemy>= 2260  + moveX || posXEnemy<= 1903  + moveX) {
 				dir*=-1;
 			}
 		}
-		
+
 		if (posYEnemy==451) {
-			
+
 			if (posXEnemy>= 2757  + moveX || posXEnemy<= 2146  + moveX) {
 				dir*=-1;
 			}
 		}
-		
-		
-		}
-	
-	
-	public void drawEnemy () {
-		if (dir==1) {
-			
-			app.image(enemyLeft, posXEnemy, posYEnemy);
-		}
-		
-		if (dir==-1) {
-			app.image(enemyRight, posXEnemy, posYEnemy);
-		}
+
+
 	}
 
 	public int getPosXEnemy() {
@@ -115,7 +103,7 @@ public class Enemy implements Runnable  {
 	public void setSpeedEnemy(int speedEnemy) {
 		this.speedEnemy = speedEnemy;
 	}
-	
+
 
 	public int getDir() {
 		return dir;
@@ -124,7 +112,7 @@ public class Enemy implements Runnable  {
 	public void setDir(int dir) {
 		this.dir = dir;
 	}
-	
+
 
 	public int getMoveX() {
 		return moveX;
@@ -133,7 +121,7 @@ public class Enemy implements Runnable  {
 	public void setMoveX(int moveX) {
 		this.moveX = moveX;
 	}
-	
+
 
 	public boolean isMoveXEnemy() {
 		return moveXEnemy;
@@ -148,5 +136,17 @@ public class Enemy implements Runnable  {
 		// TODO Auto-generated method stub
 		moveEnemy();
 	}
-	
+
+	@Override
+	public void drawChar() {
+		if (dir==1) {
+
+			app.image(enemyLeft, posXEnemy, posYEnemy);
+		}
+
+		if (dir==-1) {
+			app.image(enemyRight, posXEnemy, posYEnemy);
+		}
+	}
+
 } //CLASE

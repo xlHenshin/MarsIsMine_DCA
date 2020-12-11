@@ -78,7 +78,9 @@ public class Gameplay {
 
 		if (app.dist(controlGame.getXCol()+66, controlGame.getPosY()+ 140, 701+posX+1112, 600)<= 20) {
 			controlGame.fallRevy(true);
+			
 		} else {
+			
 			controlGame.fallRevy(false);
 		}
 
@@ -103,11 +105,9 @@ public class Gameplay {
 
 	public void winCase() throws Win {
 		if (controlGame.getXCol()+66 >= 1164) {
-			throw new Win("ganaste");
-		}
-		if (controlGame.getXCol()+66 == 1159) {
 			controlGame.loseGame();
-
+			controlGame.setRevyPosX(0);
+			throw new Win("ganaste");
 		}
 	}
 
@@ -158,34 +158,8 @@ public class Gameplay {
 			endGame=false;
 		}
 
-		if (endGame==true) {
-
-
-		}
-
-
 		return screen;
 	}
-
-	public void platformCollision() {
-
-		if (app.dist(controlGame.getXCol()+66, controlGame.getPosY()+ 140, 519, 445)<= 20) {
-
-		}
-
-		if (moveScreen) {
-
-		}
-
-		if (moveScreen) {
-
-		}
-
-		if (moveScreen) {
-
-		}
-	}
-
 
 	public void getKey(int c) {
 		if (c == 39 ) {

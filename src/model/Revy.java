@@ -54,7 +54,7 @@ public class Revy extends Thread implements Paintable{
 		}
 	}
 
-	public void draw() {
+/*public void draw() {
 		cc.y= 3.5f;
 		if(position.x<=(-1+position.x)|| position.x>=1190) {
 			cc.x *=-1;
@@ -85,7 +85,7 @@ public class Revy extends Thread implements Paintable{
 		posY = (int) position.y;
 		posXCollision = (int) position.x;
 
-	}
+	}*/
 
 	public void move() {
 
@@ -274,8 +274,35 @@ public class Revy extends Thread implements Paintable{
 
 	@Override
 	public void drawChar() {
-		// TODO Auto-generated method stub
+		cc.y= 3.5f;
+		if(position.x<=(-1+position.x)|| position.x>=1190) {
+			cc.x *=-1;
+			vel.x*=-1;
+		}
+
+		app.image(revy, position.x, position.y);
+		position.add(vel);
+		vel.add(cc);
+
+
+		if(vel.x>-1 && vel.x<1) {
+			cc.x=0;
+			vel.x=0;
+		}
 		
+		if (fall == false) {
+			if(position.y>=floor-height-5) {
+				jump=false;
+				position.y=floor-height;
+				vel.y=0;
+				cc.y=0;
+			}
+		} else if (fall == true ){
+			vel.y = 40;
+		}
+		
+		posY = (int) position.y;
+		posXCollision = (int) position.x;
 	}
 
 
