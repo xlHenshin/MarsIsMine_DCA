@@ -23,24 +23,24 @@ public class ControllerScore {
 	public void sortNames()
 	{
 		logic.organizeByName();
-		logic.drawData();
+		//logic.drawData();
 	}
 	
 	public void sortTime()
 	{
 		logic.organizeByTime();
-		logic.drawData();
+		//logic.drawData();
 	}
 	
 	public void sortDate()
 	{
 		logic.organizeByDate();
-		logic.drawData();
+		//logic.drawData();
 	}
 	
 	public void sortScore()
 	{
 		logic.organizeByScore();
-		logic.drawData();
+		//logic.drawData();
 	}
 }
