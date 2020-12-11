@@ -33,6 +33,19 @@ public class Score {
 			
 		}
 		
+		else if(app.mouseX>113 && app.mouseX<113+216 && app.mouseY>252 && app.mouseY<252+75) {
+			scoreControl.sortNames();
+			
+		} else if(app.mouseX>361 && app.mouseX<361+216 && app.mouseY>252 && app.mouseY<252+75) {
+			scoreControl.sortDate(); 
+			
+		} else if(app.mouseX>609 && app.mouseX<609+216 && app.mouseY>252 && app.mouseY<252+75) {
+			scoreControl.sortTime();
+			
+		} else if(app.mouseX>857 && app.mouseX<857+216 && app.mouseY>252 && app.mouseY<252+75) {
+			scoreControl.sortScore();
+		}
+		
 		return screen;
 	}
 }
