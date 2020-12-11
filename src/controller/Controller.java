@@ -25,4 +25,7 @@ public class Controller {
 	public void getKey(int c) {
 		logic.getKey(c);
 	}
+	public void notMove(int c) {
+		logic.notMove(c);
+	}
 }

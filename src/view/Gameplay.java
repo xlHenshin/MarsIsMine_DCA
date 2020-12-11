@@ -30,4 +30,8 @@ public class Gameplay {
 		controlGame.getKey(c);
 	}
 	
+	public void notMove(int c) {
+		controlGame.notMove(c);
+	}
+	
 }
