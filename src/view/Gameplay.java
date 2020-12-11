@@ -24,6 +24,7 @@ public class Gameplay {
 
 		app.image(game, posX, 0);
 		controlGame.drawGame();
+		controlGame.drawEnemy();
 		if (moveScreen == true) {
 			if (controlGame.getPosX()>=200 && posX >= -2370) {
 				posX = posX - 15;
