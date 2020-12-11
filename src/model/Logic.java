@@ -269,6 +269,14 @@ public class Logic {
 	}
 	
 
+	public void collision() {
+		for (int i = 0; i < enemy.size(); i++) {
+			if (app.dist(revy.getPosXCollision()+66, revy.getPosY()+140, enemy.get(i).getPosXEnemy() , enemy.get(i).getPosXEnemy()) <= 20) {
+				loseGame();
+			}
+		}		
+	}
+	
 	public int getScore() {
 		return score;
 	}
