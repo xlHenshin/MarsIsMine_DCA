@@ -32,7 +32,9 @@ public class Logic {
 		player = new LinkedList<Player>();
 		enemy = new ArrayList<Enemy>();
 		
-	}
+		createEnemy();
+		
+	} //CONSTRUCTOR
 	
 	public static Logic getInstance(PApplet app) {
 		if(oneInstance == null) {
@@ -58,6 +60,15 @@ public class Logic {
 		revyMove.start();
 	}
 	
+	public void createEnemy () {
+		
+		enemy.add(new Enemy(app, 946, 183));
+		enemy.add(new Enemy(app, 1206, 450));
+		enemy.add(new Enemy(app, 1463, 183));
+		enemy.add(new Enemy(app, 2037, 148));
+		enemy.add(new Enemy(app, 2461, 450));
+	}
+	
 	public void getKey(int c) {
 		revy.setKey(c);
 	}
@@ -69,6 +80,5 @@ public class Logic {
 	public void setPlayer(LinkedList<Player> player) {
 		this.player = player;
 	}
-	
 	
 }
