@@ -12,8 +12,6 @@ public class Main extends PApplet{
 	private Register register;
 	private Gameplay gameplay;
 	private Score score;
-	private Win win;
-	private Lose lose;
 	
 	private int screen;
 	
@@ -36,8 +34,6 @@ public class Main extends PApplet{
 		register= new Register(this);
 		gameplay= new Gameplay(this);
 		score= new Score(this);
-		win = new Win (this);
-		lose = new Lose (this);
 	}
 	
 	public void draw() {
