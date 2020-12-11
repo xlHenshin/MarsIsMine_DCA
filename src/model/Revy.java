@@ -70,26 +70,27 @@ public class Revy extends Thread {
 			cc.x=0;
 			vel.x=0;
 		}
-
-		if(position.y>=floor-height-5) {
-			jump=false;
-			position.y=floor-height;
-			vel.y=0;
-			cc.y=0;
-		}
-		posY = (int) position.y;
-		posXCollision = (int) position.x;
 		
-		if (fall == true) {
+		if (fall == false) {
+			if(position.y>=floor-height-5) {
+				jump=false;
+				position.y=floor-height;
+				vel.y=0;
+				cc.y=0;
+			}
+		} else if (fall == true ){
 			vel.y = 40;
 		}
 		
+		posY = (int) position.y;
+		posXCollision = (int) position.x;
+
 	}
 
 	public void move() {
-		
+
 		notMove();
-		
+
 		if (move == true) {
 
 			if(key==37) {
@@ -117,7 +118,7 @@ public class Revy extends Thread {
 			move = false; 
 		}
 	}
-	
+
 	public int getPosXCollision() {
 		return posXCollision;
 	}
@@ -270,9 +271,9 @@ public class Revy extends Thread {
 	public void setFall(boolean fall) {
 		this.fall = fall;
 	}
-	
-	
-	
+
+
+
 
 }
 
