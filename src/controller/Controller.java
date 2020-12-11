@@ -67,4 +67,11 @@ public class Controller {
 		return logic.getScore();
 	}
 
+	public boolean isTouch() {
+		return logic.isLoseTouch();
+  }
+	public void reset() {
+		logic.reset();
+	}
+
 }
