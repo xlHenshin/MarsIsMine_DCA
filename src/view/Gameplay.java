@@ -9,6 +9,10 @@ public class Gameplay {
 
 	private PApplet app;
 	private PImage game;
+	
+	private PImage win,lose;
+	private int endCase;
+	
 	private Controller controlGame;
 	private int posX;
 	private int screen;
@@ -18,6 +22,11 @@ public class Gameplay {
 		this.app=app;
 		controlGame = new Controller(app);
 		game=app.loadImage("../Resources/map1.png");
+		
+		win=app.loadImage("../Resources/win.png");
+		lose=app.loadImage("../Resources/lose.png");
+		endCase=0;
+		
 		posX=0;
 		moveScreen = false;
 		screen = 3;
@@ -37,18 +46,28 @@ public class Gameplay {
 		} else {
 			controlGame.isMoving(false);
 		}
-		
-		try {
-			fall();
-		} catch (Lose e) {
-			// TODO Auto-generated catch block
-			screen = 7;
-		}
-	}
 
-		public void fall() throws Lose {		
+			try {
+				revyFall();
+			} catch (Lose e) {
+				// TODO Auto-generated catch block
+				System.out.println("Game Over");
+				controlGame.loseGame();
+				endCase=2;
+			}
+			
+			ending();
+	
+	}
+	
+	public void revyFall() throws Lose {
+		
+
 		if (app.dist(controlGame.getXCol()+66, controlGame.getPosY()+ 140, 701, 600)<= 20) {
 			controlGame.fallRevy(true);
+			System.out.println("Te caiste");
+			
+			throw new Lose ("You Lose");
 		}
 		 else {
 			controlGame.fallRevy(false);
@@ -56,11 +75,28 @@ public class Gameplay {
 		
 		if (controlGame.getPosY()+ 140 >= 640) {
 			controlGame.fallRevy(true);
+
 			if (controlGame.getPosY()+140 >= 1000) {
 			throw new Lose("Perdiste");
 			}		
 		}
 	
+	public void ending() {
+		
+		switch (endCase) {
+		case 1:
+			
+			app.image(win, 0, 0);
+			break;
+			
+		case 2:
+			
+			app.image(lose, 0, 0);
+			break;
+
+		default:
+			break;
+		}
 	}
 	
 	public void platformCollision() {
