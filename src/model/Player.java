@@ -30,6 +30,7 @@ public class Player {
 		app.text(name, x, y);
 		app.text(date2, x+ 45*4, y );
 		app.text(time, x+ 120*4, y );
+		app.text(score, x+ 180*4, y);
 
 	}
 
