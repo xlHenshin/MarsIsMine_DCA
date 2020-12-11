@@ -12,7 +12,8 @@ public class Logic {
 	private ByName byname;
 	private ByTime bytime;
 	private ByDate bydate;
-
+	
+	private int posXEnemy;
 	private LinkedList<Player> player;
 	private ArrayList<Enemy> enemy;
 
@@ -24,7 +25,7 @@ public class Logic {
 	private Logic(PApplet app) {
 
 		this.app=app;
-		revy = new Revy(237, 457, app);
+		revy = new Revy(50, 457, app);
 		byname= new ByName();
 		bytime= new ByTime();
 		bydate= new ByDate();
@@ -36,9 +37,6 @@ public class Logic {
 		createEnemy();
 		
 	} //CONSTRUCTOR
-	
-
-
 
 
 	public static Logic getInstance(PApplet app) {
@@ -71,14 +69,33 @@ public class Logic {
 	public void drawEnemy() {
 		
 		for (int i = 0; i < enemy.size(); i++) {
-			
 			enemy.get(i).drawEnemy();
 			Thread newEnemy = new Thread(enemy.get(i));
 			newEnemy.start();
+			System.out.println(enemy.get(0).getMoveX());
 		}
 		
 		moveEnemy();
 		
+	}
+	
+	public void setPosX(int c) {
+		for (int i = 0; i < enemy.size(); i++) {
+			enemy.get(i).setMoveX(c);
+		}
+	}
+	
+	public int getPosXEnemy(){
+		for (int i = 0; i < enemy.size(); i++) {
+		posXEnemy= enemy.get(i).getMoveX();	
+		}
+		return posXEnemy;
+	}
+	
+	public void setIsMoving(boolean c){
+		for (int i = 0; i < enemy.size(); i++) {
+			enemy.get(i).setMoveXEnemy(c);
+		}
 	}
 	
 	public void moveEnemy() {
@@ -94,9 +111,9 @@ public class Logic {
 		
 		enemy.add(new Enemy(app, 946, 183, 1));
 		enemy.add(new Enemy(app, 1206, 450, -1));
-		enemy.add(new Enemy(app, 1463, 183, -1));
+		enemy.add(new Enemy(app, 1463, 184, -1));
 		enemy.add(new Enemy(app, 2037, 148, 1));
-		enemy.add(new Enemy(app, 2461, 450, -1));
+		enemy.add(new Enemy(app, 2461, 451, -1));
 		
 		System.out.println(enemy.size());
 	}

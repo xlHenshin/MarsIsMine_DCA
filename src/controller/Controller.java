@@ -31,4 +31,15 @@ public class Controller {
 	public int getPosX () {
 		return logic.getPosX();
 	}
+	public void setPosXEnemy(int c) {
+		logic.setPosX(c);
+	}
+	
+	public void isMoving(boolean c) {
+		logic.setIsMoving(c);
+	}
+
+	public int getPosXEnemy() {
+		return logic.getPosXEnemy();
+	}
 }
