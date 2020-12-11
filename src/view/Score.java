@@ -23,4 +23,16 @@ public class Score {
 		scoreControl.drawData();
 		
 	}
+	
+	public int button() {
+		
+		int screen=4;
+		
+		if(app.mouseX>435 && app.mouseX<752 && app.mouseY>650 && app.mouseY<722) {
+			screen=1;
+			
+		}
+		
+		return screen;
+	}
 }

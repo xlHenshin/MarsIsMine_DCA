@@ -12,23 +12,24 @@ public class Player {
 	private String name;
 	private Date date;
 	private String date2, time;
-	
-	public Player(String name, Date date, String time, PApplet app) {
-		
+	private int score;
+ 	
+	public Player(String name, Date date, String time, int score,PApplet app) {
+		this.score=score;
 		this.app=app;
 		this.name=name;
 		this.date=date;
 		this.time=time;
 		
-		SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
+		SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
 		date2 = formato.format(date);
 	}
 	
 	public void drawData(int x, int y) {
 		app.fill(0);
 		app.text(name, x, y);
-		app.text(date2, x+ 20*4, y );
-		app.text(time, x+ 45*4, y );
+		app.text(date2, x+ 45*4, y );
+		app.text(time, x+ 120*4, y );
 
 	}
 

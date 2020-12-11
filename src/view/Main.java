@@ -108,6 +108,8 @@ public class Main extends PApplet{
 			
 		case 4:
 			
+			score.button();
+			screen=score.button();
 			break;
 
 
