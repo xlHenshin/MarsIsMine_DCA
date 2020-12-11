@@ -43,11 +43,12 @@ public class Enemy implements Runnable  {
 		posXEnemy+= dir;
 		
 		if (posYEnemy==183) {
-			
+
 			if (posXEnemy >= 1103 + moveX || posXEnemy<= 790 + moveX) {
 				dir *= -1;
 			}
 		}
+	
 		if (posYEnemy==450) {
 			
 			if (posXEnemy>= 1518 + moveX || posXEnemy<= 987  + moveX) {
@@ -76,7 +77,9 @@ public class Enemy implements Runnable  {
 			}
 		}
 		
-	}
+		
+		}
+	
 	
 	public void drawEnemy () {
 		if (dir==1) {

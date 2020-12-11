@@ -72,17 +72,25 @@ public class Logic {
 		}
 	}
 	
+	public void fallRevy(boolean c) {
+		revy.setFall(c);
+	}
+	
 	public void drawEnemy() {
 		
 		for (int i = 0; i < enemy.size(); i++) {
 			enemy.get(i).drawEnemy();
 			Thread newEnemy = new Thread(enemy.get(i));
 			newEnemy.start();
-			System.out.println(enemy.get(0).getMoveX());
+			//System.out.println(enemy.get(0).getMoveX());
 		}
 		
 		moveEnemy();
 		
+	}
+	
+	public int getXCollision() {
+		return revy.getPosXCollision();
 	}
 	
 	public void setPosX(int c) {
@@ -181,5 +189,10 @@ public class Logic {
 
 	public void setPlayer(LinkedList<Player> player) {
 		this.player = player;
+	}
+
+
+	public int getPosY() {
+		return revy.getPosY();
 	}
 }
