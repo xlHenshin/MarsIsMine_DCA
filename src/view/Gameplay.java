@@ -15,6 +15,7 @@ public class Gameplay {
 	
 	private Controller controlGame;
 	private int posX;
+	private int screen;
 	private boolean moveScreen;
 
 	public Gameplay(PApplet app) {
@@ -28,6 +29,7 @@ public class Gameplay {
 		
 		posX=0;
 		moveScreen = false;
+		screen = 3;
 	}
 
 	public void drawScreen() {
@@ -44,8 +46,7 @@ public class Gameplay {
 		} else {
 			controlGame.isMoving(false);
 		}
-		//System.out.println(controlGame.getPosY()+140);
-		
+
 			try {
 				revyFall();
 			} catch (Lose e) {
@@ -61,11 +62,10 @@ public class Gameplay {
 	
 	public void revyFall() throws Lose {
 		
-		if (app.dist(controlGame.getXCol()+66, controlGame.getPosY()+ 140, 701, 600)<= 20) {
+		System.out.println(701+posX+1112);
+		
+		if (app.dist(controlGame.getXCol()+66, controlGame.getPosY()+ 140, 701+posX+1112, 600)<= 20) {
 			controlGame.fallRevy(true);
-			System.out.println("Te caiste");
-			
-			throw new Lose ("You Lose");
 		}
 		 else {
 			controlGame.fallRevy(false);
@@ -73,7 +73,11 @@ public class Gameplay {
 		
 		if (controlGame.getPosY()+ 140 >= 640) {
 			controlGame.fallRevy(true);
-			}
+
+			if (controlGame.getPosY()+140 >= 1000) {
+			throw new Lose("Perdiste");
+			}		
+		}
 	}
 	
 	public void ending() {
@@ -129,4 +133,12 @@ public class Gameplay {
 		controlGame.notMove(c);
 	}
 
+	public int getScreen() {
+		return screen;
+	}
+
+	public void setScreen(int screen) {
+		this.screen = screen;
+	}
+	
 }
