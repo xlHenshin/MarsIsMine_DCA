@@ -87,6 +87,8 @@ public class Logic {
 
 		for (int i = 0; i < star.size(); i++) {
 			star.get(i).setMoveXStar(enemy.get(0).isMoveXEnemy());
+			Thread starMove = new Thread(star.get(i));
+			starMove.start();
 		}
 
 		time=true;
@@ -275,6 +277,9 @@ public class Logic {
 				loseGame();
 				revy.setPosXCollision(0);
 			}
+			if (app.dist(revy.getPosXCollision()+ 66, revy.getPosY()+ 140, enemy.get(i).getPosXEnemy()+ 50 , enemy.get(i).getPosYEnemy()) <= 40) {
+				enemy.remove(i);
+			}
 			
 		}		
 	}
@@ -327,23 +332,23 @@ public class Logic {
 
 	public void organizeByName()
 	{
-		Collections.sort(player, Player.Comparators.NAME);
+		Collections.sort(player, byname);
 	}
 	
 	public void organizeByScore()
 	{
-		Collections.sort(player, Player.Comparators.SCORE);
+		Collections.sort(player);
 	}
 	
 	public void organizeByDate()
 	{
-		Collections.sort(player, Player.Comparators.DATE);
+		Collections.sort(player, bydate);
 	}
 	
 	public void organizeByTime()
 	{
-		Collections.sort(player, Player.Comparators.TIME);	
-}
+		Collections.sort(player, bytime);	
+	}
 	public void setPosXRevy(int posXCollision) {
 		revy.setPosXCollision(posXCollision);
 
