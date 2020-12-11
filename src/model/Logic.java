@@ -60,7 +60,7 @@ public class Logic {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
-		
+
 
 
 	} //CONSTRUCTOR
@@ -126,29 +126,6 @@ public class Logic {
 
 	}
 
-	public int getXCollision() {
-		return revy.getPosXCollision();
-	}
-
-	public void setPosX(int c) {
-		for (int i = 0; i < enemy.size(); i++) {
-			enemy.get(i).setMoveX(c);
-		}
-	}
-
-	public int getPosXEnemy(){
-		for (int i = 0; i < enemy.size(); i++) {
-			posXEnemy= enemy.get(i).getMoveX();	
-		}
-		return posXEnemy;
-	}
-
-	public void setIsMoving(boolean c){
-		for (int i = 0; i < enemy.size(); i++) {
-			enemy.get(i).setMoveXEnemy(c);
-		}
-	}
-
 	public void moveEnemy() {
 
 		for (int i = 0; i < enemy.size(); i++) {
@@ -199,26 +176,6 @@ public class Logic {
 
 	}
 
-	public int getPosX() {
-		return revy.getPosX();
-	}
-
-
-	public void getKey(int c) {
-		revy.setKey(c);
-
-		if (c == 37 || c== 38 || c == 39) {
-			move=true;
-		}
-	}
-
-	public void notMove (int c) {
-		int not = c;
-		if (not == 37 || not== 38 || not == 39) {
-			move=false;
-		}
-	}
-
 	public void paintTime() {
 
 		if (time==true) {
@@ -248,13 +205,13 @@ public class Logic {
 
 			Player newPlayer = new Player(temporalName, date, time, score, app);
 			player.add(newPlayer);
-			
+
 			System.out.println("player" + player.size());
 		}
 	}
 
 	public void reset() {
-		
+
 		revy = new Revy(50, 457, app);
 		enemy.clear();
 		star.clear();
@@ -264,7 +221,7 @@ public class Logic {
 
 		min=0;
 		seg=0;
-		
+
 		createEnemy();
 		createStar ();
 	}
@@ -280,9 +237,33 @@ public class Logic {
 			if (app.dist(revy.getPosXCollision()+ 66, revy.getPosY()+ 140, enemy.get(i).getPosXEnemy()+ 50 , enemy.get(i).getPosYEnemy()) <= 40) {
 				enemy.remove(i);
 			}
-			
+
 		}		
 	}
+
+
+	public void drawData() {
+
+		for (int i = 0; i < player.size(); i++) {
+			player.get(i).drawData(180, 370+(50*i));
+		}
+	}
+
+	public void getKey(int c) {
+		revy.setKey(c);
+
+		if (c == 37 || c== 38 || c == 39) {
+			move=true;
+		}
+	}
+
+	public void notMove (int c) {
+		int not = c;
+		if (not == 37 || not== 38 || not == 39) {
+			move=false;
+		}
+	}
+
 
 	public int getScore() {
 		return score;
@@ -295,12 +276,10 @@ public class Logic {
 
 	}
 
-	public void drawData() {
-
-		for (int i = 0; i < player.size(); i++) {
-			player.get(i).drawData(180, 370+(50*i));
-		}
+	public int getPosX() {
+		return revy.getPosX();
 	}
+
 
 
 
@@ -328,23 +307,23 @@ public class Logic {
 	public void setLoseTouch(boolean loseTouch) {
 		this.loseTouch = loseTouch;
 	}
-	
+
 
 	public void organizeByName()
 	{
 		Collections.sort(player, byname);
 	}
-	
+
 	public void organizeByScore()
 	{
 		Collections.sort(player);
 	}
-	
+
 	public void organizeByDate()
 	{
 		Collections.sort(player, bydate);
 	}
-	
+
 	public void organizeByTime()
 	{
 		Collections.sort(player, bytime);	
@@ -352,6 +331,29 @@ public class Logic {
 	public void setPosXRevy(int posXCollision) {
 		revy.setPosXCollision(posXCollision);
 
+	}
+
+	public int getXCollision() {
+		return revy.getPosXCollision();
+	}
+
+	public void setPosX(int c) {
+		for (int i = 0; i < enemy.size(); i++) {
+			enemy.get(i).setMoveX(c);
+		}
+	}
+
+	public int getPosXEnemy(){
+		for (int i = 0; i < enemy.size(); i++) {
+			posXEnemy= enemy.get(i).getMoveX();	
+		}
+		return posXEnemy;
+	}
+
+	public void setIsMoving(boolean c){
+		for (int i = 0; i < enemy.size(); i++) {
+			enemy.get(i).setMoveXEnemy(c);
+		}
 	}
 
 
