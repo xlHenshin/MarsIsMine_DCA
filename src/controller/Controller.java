@@ -70,6 +70,10 @@ public class Controller {
 	public boolean isTouch() {
 		return logic.isLoseTouch();
   }
+	public void setRevyPosX(int posXCollision) {
+		logic.setPosXRevy(posXCollision);
+	}
+	
 	public void reset() {
 		logic.reset();
 	}
