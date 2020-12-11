@@ -18,6 +18,10 @@ public class Controller {
 	public void drawGame() {
 		logic.drawGame();
 	}
+	
+	public void drawEnemy() {
+		logic.drawEnemy();
+	}
 	public void getKey(int c) {
 		logic.getKey(c);
 	}
