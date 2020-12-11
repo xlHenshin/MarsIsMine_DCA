@@ -14,6 +14,9 @@ public class Enemy implements Runnable  {
 	private int posYEnemy;
 	private int speedEnemy;
 	private int dir;
+	private int moveX;
+	private int changeX;
+	private boolean moveXEnemy;
 	
 	
 	public Enemy (PApplet app , int posXEnemy, int posYEnemy, int dir) {
@@ -22,7 +25,7 @@ public class Enemy implements Runnable  {
 		this.posXEnemy=posXEnemy;
 		this.posYEnemy=posYEnemy;
 		this.dir=dir;
-		
+		moveXEnemy = false;
 		
 		enemyLeft=app.loadImage("../Resources/enemyleft.png");
 		enemyRight=app.loadImage("../Resources/enemyright.png");
@@ -32,40 +35,43 @@ public class Enemy implements Runnable  {
 	} //CONSTRUCTOR
 	
 	public void moveEnemy () {
+		if (moveXEnemy == true) {
+			posXEnemy = posXEnemy - 8;
+			moveX = moveX - 8;
+		}
 		
-		posXEnemy+=speedEnemy*dir;
+		posXEnemy+= dir;
 		
 		if (posYEnemy==183) {
 			
-			if (posXEnemy>= 1173 || posXEnemy<= 816) {
-				dir*=-1;
+			if (posXEnemy >= 1103 + moveX || posXEnemy<= 790 + moveX) {
+				dir *= -1;
 			}
 		}
-		
 		if (posYEnemy==450) {
 			
-			if (posXEnemy>= 1518 || posXEnemy<= 987) {
+			if (posXEnemy>= 1518 + moveX || posXEnemy<= 987  + moveX) {
 				dir*=-1;
 			}
 		}
 		
-		if (posYEnemy==183) {
+		if (posYEnemy==184) {
 			
-			if (posXEnemy>= 1716 || posXEnemy<= 1359) {
+			if (posXEnemy>= 1716  + moveX || posXEnemy<= 1359  + moveX) {
 				dir*=-1;
 			}
 		}
 		
 		if (posYEnemy==148) {
 			
-			if (posXEnemy>= 2260 || posXEnemy<= 1903) {
+			if (posXEnemy>= 2260  + moveX || posXEnemy<= 1903  + moveX) {
 				dir*=-1;
 			}
 		}
 		
-		if (posYEnemy==450) {
+		if (posYEnemy==451) {
 			
-			if (posXEnemy>= 2757 || posXEnemy<= 2146) {
+			if (posXEnemy>= 2757  + moveX || posXEnemy<= 2146  + moveX) {
 				dir*=-1;
 			}
 		}
@@ -73,13 +79,12 @@ public class Enemy implements Runnable  {
 	}
 	
 	public void drawEnemy () {
-		
-		if (dir==-1) {
+		if (dir==1) {
 			
 			app.image(enemyLeft, posXEnemy, posYEnemy);
 		}
 		
-		if (dir==1) {
+		if (dir==-1) {
 			app.image(enemyRight, posXEnemy, posYEnemy);
 		}
 	}
@@ -106,6 +111,33 @@ public class Enemy implements Runnable  {
 
 	public void setSpeedEnemy(int speedEnemy) {
 		this.speedEnemy = speedEnemy;
+	}
+	
+
+	public int getDir() {
+		return dir;
+	}
+
+	public void setDir(int dir) {
+		this.dir = dir;
+	}
+	
+
+	public int getMoveX() {
+		return moveX;
+	}
+
+	public void setMoveX(int moveX) {
+		this.moveX = moveX;
+	}
+	
+
+	public boolean isMoveXEnemy() {
+		return moveXEnemy;
+	}
+
+	public void setMoveXEnemy(boolean moveXEnemy) {
+		this.moveXEnemy = moveXEnemy;
 	}
 
 	@Override

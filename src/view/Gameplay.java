@@ -26,11 +26,16 @@ public class Gameplay {
 		controlGame.drawGame();
 		controlGame.drawEnemy();
 		if (moveScreen == true) {
-			System.out.println(controlGame.getPosX());
+			//System.out.println(controlGame.getPosX());
 			if (controlGame.getPosX()>=50 && posX >= -2370) {
+				controlGame.isMoving(true);
+				//controlGame.setPosXEnemy(-15);
 				posX = posX - 15;
-				System.out.println(posX);
+				//System.out.println(posX);
 			}
+		} else {
+			controlGame.isMoving(false);
+			//controlGame.setPosXEnemy(controlGame.getPosXEnemy());
 		}
 	}
 
