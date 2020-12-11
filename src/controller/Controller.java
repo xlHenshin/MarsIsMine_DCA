@@ -66,5 +66,9 @@ public class Controller {
 	public int getScore() {
 		return logic.getScore();
 	}
+	
+	public boolean isTouch() {
+		return logic.isLoseTouch();
+	}
 
 }

@@ -13,8 +13,6 @@ public class Gameplay {
 	
 	private PImage win,lose;
 	private int endCase;
-	private boolean loser;
-	private boolean winner;
 	
 	private Controller controlGame;
 	private int posX;
@@ -31,9 +29,6 @@ public class Gameplay {
 		win=app.loadImage("../Resources/win.png");
 		lose=app.loadImage("../Resources/lose.png");
 		endCase=0;
-		loser=false;
-		winner = false;
-		
 		posX=0;
 		moveScreen = false;
 		screen = 3;
@@ -58,7 +53,6 @@ public class Gameplay {
 				revyFall();
 			} catch (Lose e) {
 				// TODO Auto-generated catch block
-				loser=true;
 				endCase=2;
 			}
 			
@@ -67,6 +61,13 @@ public class Gameplay {
 				winCase();
 			} catch (Win e) {
 				endCase=1;
+			}
+			
+			try {
+				touchEnemy();
+			} catch (Lose e) {
+				// TODO Auto-generated catch block
+				endCase=2;
 			}
 	
 	}
@@ -96,8 +97,8 @@ public class Gameplay {
 			}		
 
 		}
-		
-		if (controlGame.getPosY()+140 >= 1160 && loser == false) {
+	
+		if (controlGame.getPosY()+140 >= 1160) {
 		throw new Lose("Perdiste");
 		}		
 	}
@@ -106,10 +107,15 @@ public class Gameplay {
 		if (controlGame.getXCol()+66 >= 1164) {
 			throw new Win("ganaste");
 		}
-		System.out.println(controlGame.getXCol()+66);
 		if (controlGame.getXCol()+66 == 1159) {
 			controlGame.loseGame();
 
+		}
+	}
+	
+	public void touchEnemy() throws Lose {
+		if (controlGame.isTouch()) {
+			throw new Lose("Perdiste");
 		}
 	}
 	
