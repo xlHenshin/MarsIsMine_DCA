@@ -33,11 +33,18 @@ public class Gameplay {
 		} else {
 			controlGame.isMoving(false);
 		}
-		System.out.println(controlGame.getPosY()+140);
+		//System.out.println(controlGame.getPosY()+140);
 		
 		if (app.dist(controlGame.getXCol()+66, controlGame.getPosY()+ 140, 701, 600)<= 20) {
 			controlGame.fallRevy(true);
 		}
+		 else {
+			controlGame.fallRevy(false);
+		}
+		
+		if (controlGame.getPosY()+ 140 >= 640) {
+			controlGame.fallRevy(true);
+			}
 	}
 
 
