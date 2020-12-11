@@ -28,7 +28,7 @@ public class Main extends PApplet{
 	
 	public void setup() {
 		
-		screen=1;
+		screen=3;
 		
 		menu= new Menu(this);
 		register= new Register(this);
@@ -114,6 +114,10 @@ public class Main extends PApplet{
 	public void keyPressed() {
 		int c = keyCode;
 		gameplay.getKey(c);
+	}
+	public void keyReleased() {
+		int c = keyCode;
+		gameplay.notMove(c);
 	}
 
 }
