@@ -141,12 +141,22 @@ public class Gameplay {
 		}
 	}
 	
+	public void reset() {
+		
+		controlGame.reset();
+		endCase=0;
+		posX=0;
+		moveScreen = false;
+		//screen = 3;
+	}
+	
 	public int button() {
 		
 		int screen=3;
 		
 		if(app.mouseX>771 && app.mouseX<1086 && app.mouseY>652 && app.mouseY<730) {
 			screen=1;
+			reset();
 			endGame=false;
 		}
 		
