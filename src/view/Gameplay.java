@@ -37,6 +37,27 @@ public class Gameplay {
 			controlGame.isMoving(false);
 			//controlGame.setPosXEnemy(controlGame.getPosXEnemy());
 		}
+		
+	
+	}
+	
+	public void platformCollision() {
+		
+		if (moveScreen) {
+			
+		}
+		
+		if (moveScreen) {
+			
+		}
+		
+		if (moveScreen) {
+			
+		}
+		
+		if (moveScreen) {
+			
+		}
 	}
 
 
