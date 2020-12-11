@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.LinkedList;
 
@@ -328,8 +329,29 @@ public class Logic {
 		this.loseTouch = loseTouch;
 	}
 	
+
+	public void organizeByName()
+	{
+		Collections.sort(player, Player.Comparators.NAME);
+	}
+	
+	public void organizeByScore()
+	{
+		Collections.sort(player, Player.Comparators.SCORE);
+	}
+	
+	public void organizeByDate()
+	{
+		Collections.sort(player, Player.Comparators.DATE);
+	}
+	
+	public void organizeByTime()
+	{
+		Collections.sort(player, Player.Comparators.TIME);	
+}
 	public void setPosXRevy(int posXCollision) {
 		revy.setPosXCollision(posXCollision);
+
 	}
 
 
