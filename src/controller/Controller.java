@@ -18,4 +18,11 @@ public class Controller {
 		// TODO Auto-generated method stub
 		logic.registerPlayer(name);
 	}
+	
+	public void drawGame() {
+		logic.drawGame();
+	}
+	public void getKey(int c) {
+		logic.getKey(c);
+	}
 }
