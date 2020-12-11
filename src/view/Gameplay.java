@@ -46,7 +46,7 @@ public class Gameplay {
 		} else {
 			controlGame.isMoving(false);
 		}
-
+		System.out.println(controlGame.getXCol()+66 );
 			try {
 				revyFall();
 			} catch (Lose e) {
@@ -57,12 +57,13 @@ public class Gameplay {
 			}
 			
 			ending();
+			winCase();
 	
 	}
 	
 	public void revyFall() throws Lose {
 		
-		System.out.println(701+posX+1112);
+		//System.out.println(701+posX+1112);
 		
 		if (app.dist(controlGame.getXCol()+66, controlGame.getPosY()+ 140, 701+posX+1112, 600)<= 20) {
 			controlGame.fallRevy(true);
@@ -74,9 +75,15 @@ public class Gameplay {
 		if (controlGame.getPosY()+ 140 >= 640) {
 			controlGame.fallRevy(true);
 
-			if (controlGame.getPosY()+140 >= 1000) {
+			if (controlGame.getPosY()+140 >= 1160) {
 			throw new Lose("Perdiste");
 			}		
+		}
+	}
+	
+	public void winCase() {
+		if (controlGame.getXCol()+66 >= 1164) {
+			endCase=1;
 		}
 	}
 	
@@ -86,11 +93,13 @@ public class Gameplay {
 		case 1:
 			
 			app.image(win, 0, 0);
+			app.text(controlGame.getScore(), 900,595);
 			break;
 			
 		case 2:
 			
 			app.image(lose, 0, 0);
+			app.text(controlGame.getScore(), 900,595);
 			break;
 
 		default:
