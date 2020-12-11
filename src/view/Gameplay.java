@@ -25,6 +25,7 @@ public class Gameplay {
 		app.image(game, posX, 0);
 		controlGame.drawGame();
 		controlGame.drawEnemy();
+		controlGame.drawStar();
 		if (moveScreen == true) {
 			if (controlGame.getPosX()>=50 && posX >= -2370) {
 				controlGame.isMoving(true);

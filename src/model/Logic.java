@@ -16,7 +16,9 @@ public class Logic {
 	private int posXEnemy;
 	private LinkedList<Player> player;
 	private ArrayList<Enemy> enemy;
-
+	
+	private ArrayList <Star> star;
+	
 	private Revy revy;
 
 
@@ -32,9 +34,12 @@ public class Logic {
 
 		player = new LinkedList<Player>();
 		enemy = new ArrayList<Enemy>();
+		star = new ArrayList <Star> ();
 
 		
 		createEnemy();
+		createStar ();
+		
 		
 	} //CONSTRUCTOR
 
@@ -127,7 +132,36 @@ public class Logic {
 		System.out.println(enemy.size());
 	}
 	
+	public void createStar () {
+		
+		star.add(new Star (app, 414,490));
+		
+		star.add(new Star (app, 683,382));
+		
+		star.add(new Star (app, 975,238));
+		
+		star.add(new Star (app, 1515,238));
+		
+		star.add(new Star (app, 2068,211));
+		
+		star.add(new Star (app, 2094,493));
+		
+		star.add(new Star (app, 2343,490));
+		
+		star.add(new Star (app, 2833,326));
+		
+		star.add(new Star (app, 3083,326));
+		
+	}
 
+	public void drawStars () {
+		
+		for (Star star : star) {
+			star.draw();
+		}
+		
+	}
+	
 	public int getPosX() {
 		return revy.getPosX();
 	}

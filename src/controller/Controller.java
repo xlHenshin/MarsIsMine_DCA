@@ -42,6 +42,12 @@ public class Controller {
 	public int getPosXEnemy() {
 		return logic.getPosXEnemy();
 	}
+<<<<<<< HEAD
+	
+	public void drawStar () {
+		logic.drawStars();
+	}
+=======
 
 
 	public int getPosY() {
@@ -56,4 +62,5 @@ public class Controller {
 		logic.fallRevy(c);
 	}
 	
+>>>>>>> 3e9bb360515a68438097c050fac6717b9379e711
 }
