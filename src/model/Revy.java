@@ -88,7 +88,7 @@ public class Revy extends Thread {
 			}
 
 			if(key==39) {
-				vel.x=5;
+				vel.x=8;
 				cc.x=-0.5f;
 			}
 
