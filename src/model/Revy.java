@@ -15,6 +15,7 @@ public class Revy extends Thread {
 	private int width;
 	private int winX;
 	private int posX;
+	private int posXCollision;
 	private PVector position;
 	private PVector vel;
 	private PVector cc;
@@ -23,7 +24,9 @@ public class Revy extends Thread {
 	private int status;
 	private int key;
 	private int speed;
+	private int posY;
 	private boolean move;
+	private boolean fall;
 
 	public Revy(int x, int y,PApplet app) {
 
@@ -38,7 +41,7 @@ public class Revy extends Thread {
 		this.app = app;
 		speed=2;
 		move= false;
-
+		fall = false;
 	}
 
 	@Override
@@ -74,6 +77,13 @@ public class Revy extends Thread {
 			vel.y=0;
 			cc.y=0;
 		}
+		posY = (int) position.y;
+		posXCollision = (int) position.x;
+		
+		if (fall == true) {
+			vel.y = 40;
+		}
+		
 	}
 
 	public void move() {
@@ -89,7 +99,7 @@ public class Revy extends Thread {
 
 			if(key==39) {
 				vel.x=8;
-				cc.x=-0.5f;
+				cc.x=-0.7f;
 			}
 
 			if(key==38 && jump==false) {
@@ -106,6 +116,14 @@ public class Revy extends Thread {
 		}else {
 			move = false; 
 		}
+	}
+	
+	public int getPosXCollision() {
+		return posXCollision;
+	}
+
+	public void setPosXCollision(int posXCollision) {
+		this.posXCollision = posXCollision;
 	}
 
 
@@ -236,6 +254,25 @@ public class Revy extends Thread {
 	public void setSpeed(int speed) {
 		this.speed = speed;
 	}
+
+	public int getPosY() {
+		return posY;
+	}
+
+	public void setPosY(int posY) {
+		this.posY = posY;
+	}
+
+	public boolean isFall() {
+		return fall;
+	}
+
+	public void setFall(boolean fall) {
+		this.fall = fall;
+	}
+	
+	
+	
 
 }
 

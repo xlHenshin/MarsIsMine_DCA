@@ -42,4 +42,18 @@ public class Controller {
 	public int getPosXEnemy() {
 		return logic.getPosXEnemy();
 	}
+
+
+	public int getPosY() {
+		return logic.getPosY();
+	}
+	
+	public int getXCol() {
+		return logic.getXCollision();
+	}
+	
+	public void fallRevy(boolean c) {
+		logic.fallRevy(c);
+	}
+	
 }
