@@ -38,6 +38,27 @@ public class Gameplay {
 		if (app.dist(controlGame.getXCol()+66, controlGame.getPosY()+ 140, 701, 600)<= 20) {
 			controlGame.fallRevy(true);
 		}
+		
+	
+	}
+	
+	public void platformCollision() {
+		
+		if (moveScreen) {
+			
+		}
+		
+		if (moveScreen) {
+			
+		}
+		
+		if (moveScreen) {
+			
+		}
+		
+		if (moveScreen) {
+			
+		}
 	}
 
 
