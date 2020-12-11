@@ -9,7 +9,12 @@ public class Logic {
 
 	private PApplet app;
 	
+	private ByName byname;
+	private ByTime bytime;
+	private ByDate bydate;
+	
 	private LinkedList<Player> player;
+	private ArrayList<Enemy> enemy;
 	
 	private Revy revy;
 	
@@ -17,9 +22,16 @@ public class Logic {
 	private static Logic oneInstance;
 	
 	private Logic(PApplet app) {
+    
 		this.app=app;
 		revy = new Revy(237, 457, app);
+		byname= new ByName();
+		bytime= new ByTime();
+		bydate= new ByDate();
+		
 		player = new LinkedList<Player>();
+		enemy = new ArrayList<Enemy>();
+		
 	}
 	
 	public static Logic getInstance(PApplet app) {
