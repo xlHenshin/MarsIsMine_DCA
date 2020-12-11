@@ -39,7 +39,6 @@ public class Logic {
 	
 
 
-	}
 
 
 	public static Logic getInstance(PApplet app) {

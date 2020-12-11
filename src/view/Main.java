@@ -28,7 +28,7 @@ public class Main extends PApplet{
 	
 	public void setup() {
 		
-		screen=3;
+		screen=1;
 		
 		menu= new Menu(this);
 		register= new Register(this);
