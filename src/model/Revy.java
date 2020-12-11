@@ -13,15 +13,12 @@ public class Revy extends Thread implements Paintable{
 	private int floor;
 	private int height;
 	private int width;
-	private int winX;
 	private int posX;
 	private int posXCollision;
 	private PVector position;
 	private PVector vel;
 	private PVector cc;
 	private boolean jump;
-	private int health;
-	private int status;
 	private int key;
 	private int speed;
 	private int posY;
@@ -175,36 +172,12 @@ public class Revy extends Thread implements Paintable{
 		this.width = width;
 	}
 
-	public int getWinX() {
-		return winX;
-	}
-
-	public void setWinX(int winX) {
-		this.winX = winX;
-	}
-
 	public PVector getPosition() {
 		return position;
 	}
 
 	public void setPosition(PVector position) {
 		this.position = position;
-	}
-
-	public int getHealth() {
-		return health;
-	}
-
-	public void setHealth(int health) {
-		this.health = health;
-	}
-
-	public int getStatus() {
-		return status;
-	}
-
-	public void setStatus(int status) {
-		this.status = status;
 	}
 
 	public int getKey() {
