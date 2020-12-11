@@ -14,10 +14,6 @@ public class Controller {
 		logic= Logic.getInstance(app);
 	}
 
-	public void registerPlayer(String name) {
-		// TODO Auto-generated method stub
-		logic.registerPlayer(name);
-	}
 	
 	public void drawGame() {
 		logic.drawGame();
