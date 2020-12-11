@@ -12,70 +12,74 @@ public class Logic {
 	private ByName byname;
 	private ByTime bytime;
 	private ByDate bydate;
-	
+
 	private LinkedList<Player> player;
 	private ArrayList<Enemy> enemy;
-	
+
 	private Revy revy;
-	
-	
+
+
 	private static Logic oneInstance;
-	
+
 	private Logic(PApplet app) {
-    
+
 		this.app=app;
 		revy = new Revy(237, 457, app);
 		byname= new ByName();
 		bytime= new ByTime();
 		bydate= new ByDate();
-		
+
 		player = new LinkedList<Player>();
 		enemy = new ArrayList<Enemy>();
-		
+
 	}
-	
+
 	public static Logic getInstance(PApplet app) {
 		if(oneInstance == null) {
 			oneInstance = new Logic(app);
 		}
 		return oneInstance;
 	}
-	
+
 	public void registerPlayer(String name) {
-		
+
 		Player newPlayer = new Player(name, app);
 		player.add(newPlayer);
-		
+
 		for (int i = 0; i < player.size(); i++) {
-			
+
 			System.out.println(">>> Name: " + player.get(i).getName() + " <<<");
 		}
 	}
-	
+
 	public void drawGame() {
 		revy.draw();
 		if (move == true) {
-			
-		Thread revyMove = new Thread(revy);
-		revyMove.start();
-	}
+
+			Thread revyMove = new Thread(revy);
+			revyMove.start();
+		}
 	}
 	
+	public int getPosX() {
+		return revy.getPosX();
+	}
+
 	public void getKey(int c) {
 		revy.setKey(c);
-		
+
 		if (c == 37 || c== 38 || c == 39) {
 			move=true;
 		}
 	}
-	
+
 	public void notMove (int c) {
 		int not = c;
 		if (not == 37 || not== 38 || not == 39) {
 			move=false;
 		}
 	}
-	
+
 
 	public LinkedList<Player> getPlayer() {
 		return player;
@@ -84,6 +88,6 @@ public class Logic {
 	public void setPlayer(LinkedList<Player> player) {
 		this.player = player;
 	}
-	
-	
+
+
 }

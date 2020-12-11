@@ -14,6 +14,7 @@ public class Revy extends Thread {
 	private int height;
 	private int width;
 	private int winX;
+	private int posX;
 	private PVector position;
 	private PVector vel;
 	private PVector cc;
@@ -26,6 +27,7 @@ public class Revy extends Thread {
 
 	public Revy(int x, int y,PApplet app) {
 
+		posX = x;
 		revy= app.loadImage("../Resources/revy1.png");
 		position= new PVector(x,y);
 		vel= new PVector(0,0);
@@ -36,6 +38,7 @@ public class Revy extends Thread {
 		this.app = app;
 		speed=2;
 		move= false;
+
 	}
 
 	@Override
@@ -103,6 +106,46 @@ public class Revy extends Thread {
 		}
 	}
 
+
+	public int getPosX() {
+		return posX;
+	}
+
+	public void setPosX(int posX) {
+		this.posX = posX;
+	}
+
+	public PVector getVel() {
+		return vel;
+	}
+
+	public void setVel(PVector vel) {
+		this.vel = vel;
+	}
+
+	public PVector getCc() {
+		return cc;
+	}
+
+	public void setCc(PVector cc) {
+		this.cc = cc;
+	}
+
+	public boolean isJump() {
+		return jump;
+	}
+
+	public void setJump(boolean jump) {
+		this.jump = jump;
+	}
+
+	public boolean isMove() {
+		return move;
+	}
+
+	public void setMove(boolean move) {
+		this.move = move;
+	}
 
 	public PApplet getApp() {
 		return app;

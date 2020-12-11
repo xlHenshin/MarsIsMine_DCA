@@ -24,4 +24,7 @@ public class Controller {
 	public void notMove(int c) {
 		logic.notMove(c);
 	}
+	public int getPosX () {
+		return logic.getPosX();
+	}
 }
