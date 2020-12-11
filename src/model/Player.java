@@ -21,8 +21,16 @@ public class Player {
 		this.date=date;
 		this.time=time;
 		
-		SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
+		SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
 		date2 = formato.format(date);
+	}
+	
+	public void drawData(int x, int y) {
+		app.fill(0);
+		app.text(name, x, y);
+		app.text(date2, x+ 45*4, y );
+		app.text(time, x+ 120*4, y );
+
 	}
 
 	public String getName() {
