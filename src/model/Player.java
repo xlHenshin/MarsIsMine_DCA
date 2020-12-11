@@ -12,9 +12,10 @@ public class Player {
 	private String name;
 	private Date date;
 	private String date2, time;
-	
-	public Player(String name, Date date, String time, PApplet app) {
-		
+	private int score;
+ 	
+	public Player(String name, Date date, String time, int score,PApplet app) {
+		this.score=score;
 		this.app=app;
 		this.name=name;
 		this.date=date;

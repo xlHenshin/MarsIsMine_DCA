@@ -2,6 +2,7 @@ package view;
 
 import controller.Controller;
 import exception.Lose;
+import exception.Win;
 import processing.core.PApplet;
 import processing.core.PImage;
 
@@ -12,6 +13,8 @@ public class Gameplay {
 	
 	private PImage win,lose;
 	private int endCase;
+	private boolean loser;
+	private boolean winner;
 	
 	private Controller controlGame;
 	private int posX;
@@ -26,6 +29,8 @@ public class Gameplay {
 		win=app.loadImage("../Resources/win.png");
 		lose=app.loadImage("../Resources/lose.png");
 		endCase=0;
+		loser=false;
+		winner = false;
 		
 		posX=0;
 		moveScreen = false;
@@ -46,37 +51,54 @@ public class Gameplay {
 		} else {
 			controlGame.isMoving(false);
 		}
-
+		//System.out.println(controlGame.getXCol()+66 );
 			try {
 				revyFall();
 			} catch (Lose e) {
 				// TODO Auto-generated catch block
-				System.out.println("Game Over");
-				controlGame.loseGame();
+				loser=true;
 				endCase=2;
 			}
 			
 			ending();
+			try {
+				winCase();
+			} catch (Win e) {
+				endCase=1;
+			}
 	
 	}
 	
 	public void revyFall() throws Lose {
 		
-		System.out.println(701+posX+1112);
+		//System.out.println(701+posX+1112);
 		
 		if (app.dist(controlGame.getXCol()+66, controlGame.getPosY()+ 140, 701+posX+1112, 600)<= 20) {
 			controlGame.fallRevy(true);
-		}
-		 else {
+		} else {
 			controlGame.fallRevy(false);
+		}
+		
+		if (controlGame.getPosY() + 140 == 640) {
+			controlGame.loseGame();
 		}
 		
 		if (controlGame.getPosY()+ 140 >= 640) {
 			controlGame.fallRevy(true);
-
-			if (controlGame.getPosY()+140 >= 1000) {
-			throw new Lose("Perdiste");
-			}		
+		}
+		
+		if (controlGame.getPosY()+140 >= 1160 && loser == false) {
+		throw new Lose("Perdiste");
+		}		
+	}
+	
+	public void winCase() throws Win {
+		if (controlGame.getXCol()+66 >= 1164) {
+			throw new Win("ganaste");
+		}
+		System.out.println(controlGame.getXCol()+66);
+		if (controlGame.getXCol()+66 == 1159) {
+			controlGame.loseGame();
 		}
 	}
 	
@@ -86,11 +108,13 @@ public class Gameplay {
 		case 1:
 			
 			app.image(win, 0, 0);
+			app.text(controlGame.getScore(), 900,595);
 			break;
 			
 		case 2:
 			
 			app.image(lose, 0, 0);
+			app.text(controlGame.getScore(), 900,595);
 			break;
 
 		default:

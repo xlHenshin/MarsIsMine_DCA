@@ -14,19 +14,19 @@ public class Logic {
 	private ByName byname;
 	private ByTime bytime;
 	private ByDate bydate;
-	
+
 	private int min,seg;
 	private boolean time;
-	
+
 	private String temporalName;
 	private int posXEnemy;
 	private LinkedList<Player> player;
 	private ArrayList<Enemy> enemy;
-	
+
 	private ArrayList <Star> star;
-	
+
 	private Revy revy;
-	
+
 	private int score;
 
 
@@ -41,7 +41,7 @@ public class Logic {
 		bydate= new ByDate();
 		temporalName="";
 		score=0;
-		
+
 		min=0;
 		seg=0;
 		time=false;
@@ -50,11 +50,11 @@ public class Logic {
 		enemy = new ArrayList<Enemy>();
 		star = new ArrayList <Star> ();
 
-		
+
 		createEnemy();
 		createStar ();
-		
-		
+
+
 	} //CONSTRUCTOR
 
 
@@ -67,34 +67,33 @@ public class Logic {
 	}
 
 	public void registerPlayer(String name) {
-
-		
 		temporalName=name;
 	}
 
 	public void drawGame() {
+		System.out.println("player" + player.size());
 		revy.draw();
 		if (move == true) {
 
 			Thread revyMove = new Thread(revy);
 			revyMove.start();
 		}
-		
+
 		for (int i = 0; i < star.size(); i++) {
 			star.get(i).setMoveXStar(enemy.get(0).isMoveXEnemy());
 		}
-		
+
 		time=true;
 		paintTime();
-		
+
 		newPoint();
 	}
-	
-	
-	
+
+
+
 	public void newPoint() {
 		for (int i = 0; i < star.size(); i++) {
-			if (app.dist(revy.getPosXCollision(), revy.getPosY(), star.get(i).getposXStar(), star.get(i).getposYStar())<=50) {
+			if (app.dist(revy.getPosXCollision()+66, revy.getPosY()+70, star.get(i).getposXStar(), star.get(i).getposYStar())<=100) {
 				star.remove(i);
 				score = score + 100;
 			}
@@ -102,97 +101,97 @@ public class Logic {
 		app.textSize(40);
 		app.text("Score: "+ score, 700, 750);
 	}
-	
+
 	public void fallRevy(boolean c) {
 		revy.setFall(c);
 	}
-	
+
 	public void drawEnemy() {
-		
+
 		for (int i = 0; i < enemy.size(); i++) {
 			enemy.get(i).drawEnemy();
 			Thread newEnemy = new Thread(enemy.get(i));
 			newEnemy.start();
 			//System.out.println(enemy.get(0).getMoveX());
 		}
-		
+
 		moveEnemy();
-		
+
 	}
-	
+
 	public int getXCollision() {
 		return revy.getPosXCollision();
 	}
-	
+
 	public void setPosX(int c) {
 		for (int i = 0; i < enemy.size(); i++) {
 			enemy.get(i).setMoveX(c);
 		}
 	}
-	
+
 	public int getPosXEnemy(){
 		for (int i = 0; i < enemy.size(); i++) {
-		posXEnemy= enemy.get(i).getMoveX();	
+			posXEnemy= enemy.get(i).getMoveX();	
 		}
 		return posXEnemy;
 	}
-	
+
 	public void setIsMoving(boolean c){
 		for (int i = 0; i < enemy.size(); i++) {
 			enemy.get(i).setMoveXEnemy(c);
 		}
 	}
-	
+
 	public void moveEnemy() {
-		
+
 		for (int i = 0; i < enemy.size(); i++) {
-			
+
 			enemy.get(i).moveEnemy();
 		}
 	}
-	
+
 
 	public void createEnemy () {
-		
+
 		enemy.add(new Enemy(app, 946, 183, 1));
 		enemy.add(new Enemy(app, 1206, 450, -1));
 		enemy.add(new Enemy(app, 1463, 184, -1));
 		enemy.add(new Enemy(app, 2037, 148, 1));
 		enemy.add(new Enemy(app, 2461, 451, -1));
-		
+
 		System.out.println(enemy.size());
 	}
-	
+
 	public void createStar () {
-		
+
 		star.add(new Star (app, 414,490));
-		
+
 		star.add(new Star (app, 683,382));
-		
+
 		star.add(new Star (app, 975,238));
-		
+
 		star.add(new Star (app, 1515,238));
-		
+
 		star.add(new Star (app, 2068,211));
-		
+
 		star.add(new Star (app, 2094,493));
-		
+
 		star.add(new Star (app, 2343,490));
-		
+
 		star.add(new Star (app, 2833,326));
-		
+
 		star.add(new Star (app, 3083,326));
-		
+
 	}
 
 	public void drawStars () {
-		
+
 		for (Star star : star) {
 			star.draw();
 		}
-		
+
 	}
-	
+
 	public int getPosX() {
 		return revy.getPosX();
 	}
@@ -212,12 +211,12 @@ public class Logic {
 			move=false;
 		}
 	}
-	
+
 	public void paintTime() {
-		
+
 		if (time==true) {
-			
-			
+
+
 			if (app.frameCount % 60 == 0) {
 				seg += 1;
 			}
@@ -226,31 +225,44 @@ public class Logic {
 				min += 1;
 			}
 		}
-		
+
 		app.textSize(40);
 		app.text("Time: "+ min + ":" + seg, 400, 750);
 	}
-	
+
 	public void loseGame(){
-		
+
 		time=false;
 		String m= Integer.toString(min);
 		String s= Integer.toString(seg);
 		String time = m+":"+s;
 		Date date = new Date();
-		
-		Player newPlayer = new Player(temporalName, date, time, app);
-		player.add(newPlayer);
 
-		for (int i = 0; i < player.size(); i++) {
+		for (int i = 0; i < 1; i++) {
 
+			Player newPlayer = new Player(temporalName, date, time, score, app);
+			player.add(newPlayer);
+
+		}
+		/*
 			System.out.println(">>> Name: " + player.get(i).getName() + " <<<");
 			System.out.println(">>> Date: " + player.get(i).getDate2() + " <<<");
 			System.out.println(">>> Time: " + player.get(i).getTime() + " <<<");
 			System.out.println(">>> List size: " + player.size() + " <<<");
-		}
-		
+		}*/
+
 	}
+
+	public int getScore() {
+		return score;
+	}
+
+
+
+	public void setScore(int score) {
+		this.score = score;
+	}
+
 
 
 	public LinkedList<Player> getPlayer() {
@@ -265,6 +277,6 @@ public class Logic {
 	public int getPosY() {
 		return revy.getPosY();
 	}
-	
-	
+
+
 }
