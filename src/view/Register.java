@@ -63,8 +63,10 @@ public class Register {
 		
 		if(noName==true) {
 			throw new NoName("There is NO name");
+			
 		}else if (name.length()>10) {
 			throw new NameLenght("Name is too long");
+			
 		}else {
 			controller.registerPlayer(name);
 			correct=true;
