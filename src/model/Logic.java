@@ -239,12 +239,8 @@ public class Logic {
 
 			Player newPlayer = new Player(temporalName, date, time, score, app);
 			player.add(newPlayer);
+			
 			System.out.println("player" + player.size());
-
-			//System.out.println(">>> Name: " + player.get(i).getName() + " <<<");
-			//System.out.println(">>> Date: " + player.get(i).getDate2() + " <<<");
-			//System.out.println(">>> Time: " + player.get(i).getTime() + " <<<");
-			//System.out.println(">>> List size: " + player.size() + " <<<");
 		}
 	}
 
