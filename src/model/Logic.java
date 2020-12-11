@@ -52,9 +52,14 @@ public class Logic {
 		enemy = new ArrayList<Enemy>();
 		star = new ArrayList <Star> ();
 
-
-		createEnemy();
-		createStar ();
+		try {
+			createEnemy();
+			createStar ();
+		} catch (RuntimeException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		
 
 
 	} //CONSTRUCTOR
