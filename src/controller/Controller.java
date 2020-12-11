@@ -42,4 +42,8 @@ public class Controller {
 	public int getPosXEnemy() {
 		return logic.getPosXEnemy();
 	}
+	
+	public void drawStar () {
+		logic.drawStars();
+	}
 }
