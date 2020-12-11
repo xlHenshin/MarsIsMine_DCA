@@ -62,8 +62,9 @@ public class Gameplay {
 	
 	public void revyFall() throws Lose {
 		
-
-		if (app.dist(controlGame.getXCol()+66, controlGame.getPosY()+ 140, 701, 600)<= 20) {
+		System.out.println(701+posX+1112);
+		
+		if (app.dist(controlGame.getXCol()+66, controlGame.getPosY()+ 140, 701+posX+1112, 600)<= 20) {
 			controlGame.fallRevy(true);
 		}
 		 else {

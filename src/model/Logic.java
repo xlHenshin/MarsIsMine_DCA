@@ -26,6 +26,8 @@ public class Logic {
 	private ArrayList <Star> star;
 	
 	private Revy revy;
+	
+	private int score;
 
 
 	private static Logic oneInstance;
@@ -38,6 +40,7 @@ public class Logic {
 		bytime= new ByTime();
 		bydate= new ByDate();
 		temporalName="";
+		score=0;
 		
 		min=0;
 		seg=0;
@@ -77,9 +80,27 @@ public class Logic {
 			revyMove.start();
 		}
 		
+		for (int i = 0; i < star.size(); i++) {
+			star.get(i).setMoveXStar(enemy.get(0).isMoveXEnemy());
+		}
+		
 		time=true;
 		paintTime();
 		
+		newPoint();
+	}
+	
+	
+	
+	public void newPoint() {
+		for (int i = 0; i < star.size(); i++) {
+			if (app.dist(revy.getPosXCollision(), revy.getPosY(), star.get(i).getposXStar(), star.get(i).getposYStar())<=50) {
+				star.remove(i);
+				score = score + 100;
+			}
+		}
+		app.textSize(40);
+		app.text("Score: "+ score, 700, 750);
 	}
 	
 	public void fallRevy(boolean c) {
