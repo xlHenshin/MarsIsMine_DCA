@@ -39,6 +39,7 @@ public class Enemy implements Runnable  {
 			
 			if (posXEnemy>= 1173 || posXEnemy<= 816) {
 				dir*=-1;
+				System.out.println("1 cambia");
 			}
 		}
 		
@@ -46,6 +47,7 @@ public class Enemy implements Runnable  {
 			
 			if (posXEnemy>= 1518 || posXEnemy<= 987) {
 				dir*=-1;
+				System.out.println("2 cambia");
 			}
 		}
 		
@@ -53,6 +55,7 @@ public class Enemy implements Runnable  {
 			
 			if (posXEnemy>= 1716 || posXEnemy<= 1359) {
 				dir*=-1;
+				System.out.println("3 cambia");
 			}
 		}
 		
@@ -60,6 +63,7 @@ public class Enemy implements Runnable  {
 			
 			if (posXEnemy>= 2260 || posXEnemy<= 1903) {
 				dir*=-1;
+				System.out.println("4 cambia");
 			}
 		}
 		
@@ -67,8 +71,11 @@ public class Enemy implements Runnable  {
 			
 			if (posXEnemy>= 2757 || posXEnemy<= 2146) {
 				dir*=-1;
+				System.out.println("5 cambia");
 			}
 		}
+		
+		
 		
 	}
 	
