@@ -69,6 +69,8 @@ public class Gameplay {
 			// TODO Auto-generated catch block
 			endCase=2;
 		}
+		
+		
 
 	}
 
@@ -78,7 +80,9 @@ public class Gameplay {
 
 		if (app.dist(controlGame.getXCol()+66, controlGame.getPosY()+ 140, 701+posX+1112, 600)<= 20) {
 			controlGame.fallRevy(true);
+			
 		} else {
+			
 			controlGame.fallRevy(false);
 		}
 
@@ -100,14 +104,13 @@ public class Gameplay {
 			throw new Lose("Perdiste");
 		}		
 	}
+	
 
 	public void winCase() throws Win {
 		if (controlGame.getXCol()+66 >= 1164) {
-			throw new Win("ganaste");
-		}
-		if (controlGame.getXCol()+66 == 1159) {
 			controlGame.loseGame();
-
+			controlGame.setRevyPosX(0);
+			throw new Win("ganaste");
 		}
 	}
 
@@ -154,38 +157,19 @@ public class Gameplay {
 
 		if(app.mouseX>771 && app.mouseX<1086 && app.mouseY>652 && app.mouseY<730) {
 			screen=1;
-			reset();
+			
+			try {
+				reset();
+			} catch (RuntimeException e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+			
 			endGame=false;
 		}
 
-		if (endGame==true) {
-
-
-		}
-
-
 		return screen;
 	}
-
-	public void platformCollision() {
-
-		if (app.dist(controlGame.getXCol()+66, controlGame.getPosY()+ 140, 519, 445)<= 20) {
-
-		}
-
-		if (moveScreen) {
-
-		}
-
-		if (moveScreen) {
-
-		}
-
-		if (moveScreen) {
-
-		}
-	}
-
 
 	public void getKey(int c) {
 		if (c == 39 ) {
