@@ -24,7 +24,7 @@ public class Logic {
 	private Logic(PApplet app) {
 
 		this.app=app;
-		revy = new Revy(237, 457, app);
+		revy = new Revy(50, 457, app);
 		byname= new ByName();
 		bytime= new ByTime();
 		bydate= new ByDate();
@@ -39,7 +39,7 @@ public class Logic {
 	
 
 
-	}
+	
 
 
 	public static Logic getInstance(PApplet app) {
