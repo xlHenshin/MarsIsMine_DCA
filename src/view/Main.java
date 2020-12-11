@@ -28,7 +28,7 @@ public class Main extends PApplet{
 	
 	public void setup() {
 		
-		screen=3;
+		screen=1;
 		
 		menu= new Menu(this);
 		register= new Register(this);
@@ -39,6 +39,7 @@ public class Main extends PApplet{
 	public void draw() {
 		
 		background(0);
+		
 		
 		switch (screen) {
 		case 1:
@@ -62,11 +63,6 @@ public class Main extends PApplet{
 		case 4:
 			
 			score.drawScreen();
-			register.getCp5().hide();
-			break;
-			
-		case 5:
-			
 			register.getCp5().hide();
 			break;
 
@@ -102,10 +98,7 @@ public class Main extends PApplet{
 		case 4:
 			
 			break;
-			
-		case 5:
-			
-			break;
+
 
 		default:
 			break;

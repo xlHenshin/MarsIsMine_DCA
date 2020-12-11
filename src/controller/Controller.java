@@ -14,6 +14,10 @@ public class Controller {
 		logic= Logic.getInstance(app);
 	}
 
+	public void loseGame() {
+		
+		logic.loseGame();
+	}
 	
 	public void drawGame() {
 		logic.drawGame();
