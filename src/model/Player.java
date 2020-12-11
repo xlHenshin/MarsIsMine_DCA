@@ -22,12 +22,13 @@ public class Player implements Comparable<Player> {
 		this.date=date;
 		this.time=time;
 		
-		SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
+		SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
 		date2 = formato.format(date);
 	}
 	
 	public void drawData(int x, int y) {
 		app.fill(0);
+		app.textSize(15);
 		app.text(name, x, y);
 		app.text(date2, x+ 45*4, y );
 		app.text(time, x+ 120*4, y );
