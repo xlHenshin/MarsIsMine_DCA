@@ -9,15 +9,29 @@ public class Logic {
 
 	private PApplet app;
 	
+	private ByName byname;
+	private ByTime bytime;
+	private ByDate bydate;
+	
 	private LinkedList<Player> player;
+	private ArrayList<Enemy> enemy;
+	
+	private Revy revy;
 	
 	
 	private static Logic oneInstance;
 	
 	private Logic(PApplet app) {
-		
+    
 		this.app=app;
+		revy = new Revy(237, 457, app);
+		byname= new ByName();
+		bytime= new ByTime();
+		bydate= new ByDate();
+		
 		player = new LinkedList<Player>();
+		enemy = new ArrayList<Enemy>();
+		
 	}
 	
 	public static Logic getInstance(PApplet app) {
@@ -36,6 +50,16 @@ public class Logic {
 			
 			System.out.println(">>> Name: " + player.get(i).getName() + " <<<");
 		}
+	}
+	
+	public void drawGame() {
+		revy.draw();
+		Thread revyMove = new Thread(revy);
+		revyMove.start();
+	}
+	
+	public void getKey(int c) {
+		revy.setKey(c);
 	}
 
 	public LinkedList<Player> getPlayer() {
