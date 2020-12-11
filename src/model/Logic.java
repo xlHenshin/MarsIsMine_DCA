@@ -17,6 +17,7 @@ public class Logic {
 
 	private int min,seg;
 	private boolean time;
+	private boolean loseTouch;
 
 	private String temporalName;
 	private int posXEnemy;
@@ -41,6 +42,7 @@ public class Logic {
 		bydate= new ByDate();
 		temporalName="";
 		score=0;
+		loseTouch=false;
 
 		min=0;
 		seg=0;
@@ -71,10 +73,8 @@ public class Logic {
 	}
 
 	public void drawGame() {
-		System.out.println("player" + player.size());
 		revy.draw();
 		if (move == true) {
-
 			Thread revyMove = new Thread(revy);
 			revyMove.start();
 		}
@@ -85,11 +85,9 @@ public class Logic {
 
 		time=true;
 		paintTime();
-
 		newPoint();
+		collision();
 	}
-
-
 
 	public void newPoint() {
 		for (int i = 0; i < star.size(); i++) {
@@ -237,21 +235,18 @@ public class Logic {
 		String s= Integer.toString(seg);
 		String time = m+":"+s;
 		Date date = new Date();
-
 		for (int i = 0; i < 1; i++) {
 
 			Player newPlayer = new Player(temporalName, date, time, score, app);
 			player.add(newPlayer);
-
+			System.out.println("player" + player.size());
 
 			//System.out.println(">>> Name: " + player.get(i).getName() + " <<<");
 			//System.out.println(">>> Date: " + player.get(i).getDate2() + " <<<");
 			//System.out.println(">>> Time: " + player.get(i).getTime() + " <<<");
 			//System.out.println(">>> List size: " + player.size() + " <<<");
 		}
-		
-
-		}
+	}
 
 	public void reset() {
 		
@@ -267,16 +262,19 @@ public class Logic {
 		createEnemy();
 		createStar ();
 	}
-	
+
 
 	public void collision() {
 		for (int i = 0; i < enemy.size(); i++) {
-			if (app.dist(revy.getPosXCollision()+66, revy.getPosY()+140, enemy.get(i).getPosXEnemy() , enemy.get(i).getPosXEnemy()) <= 20) {
+			if (app.dist(revy.getPosXCollision()+ 80, revy.getPosY()+ 10, enemy.get(i).getPosXEnemy()+ 80 , enemy.get(i).getPosYEnemy()+ 10) <= 20) {
+				loseTouch = true;
+			}
+			if (revy.getPosXCollision()+ 80 == enemy.get(i).getPosXEnemy()-80) {
 				loseGame();
 			}
 		}		
 	}
-	
+
 	public int getScore() {
 		return score;
 	}
@@ -287,11 +285,10 @@ public class Logic {
 		this.score = score;
 
 	}
-	
+
 	public void drawData() {
-		
+
 		for (int i = 0; i < player.size(); i++) {
-			
 			player.get(i).drawData(180, 370+(50*i));
 		}
 	}
@@ -310,6 +307,20 @@ public class Logic {
 	public int getPosY() {
 		return revy.getPosY();
 	}
+
+
+
+	public boolean isLoseTouch() {
+		return loseTouch;
+	}
+
+
+
+	public void setLoseTouch(boolean loseTouch) {
+		this.loseTouch = loseTouch;
+	}
+
+
 
 
 }
