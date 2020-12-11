@@ -23,6 +23,14 @@ public class Player {
 		SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
 		date2 = formato.format(date);
 	}
+	
+	public void drawData(int x, int y) {
+		app.fill(0);
+		app.text(name, x, y);
+		app.text(date2, x+ 20*4, y );
+		app.text(time, x+ 45*4, y );
+
+	}
 
 	public String getName() {
 		return name;

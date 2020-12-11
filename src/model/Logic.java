@@ -244,12 +244,20 @@ public class Logic {
 
 		for (int i = 0; i < player.size(); i++) {
 
-			System.out.println(">>> Name: " + player.get(i).getName() + " <<<");
-			System.out.println(">>> Date: " + player.get(i).getDate2() + " <<<");
-			System.out.println(">>> Time: " + player.get(i).getTime() + " <<<");
-			System.out.println(">>> List size: " + player.size() + " <<<");
+			//System.out.println(">>> Name: " + player.get(i).getName() + " <<<");
+			//System.out.println(">>> Date: " + player.get(i).getDate2() + " <<<");
+			//System.out.println(">>> Time: " + player.get(i).getTime() + " <<<");
+			//System.out.println(">>> List size: " + player.size() + " <<<");
 		}
 		
+	}
+	
+	public void drawData() {
+		
+		for (int i = 0; i < player.size(); i++) {
+			
+			player.get(i).drawData(320, 150+(20*i));
+		}
 	}
 
 

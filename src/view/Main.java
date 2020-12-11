@@ -102,6 +102,8 @@ public class Main extends PApplet{
 			
 		case 3:
 			
+			gameplay.button();
+			screen=gameplay.button();
 			break;
 			
 		case 4:
