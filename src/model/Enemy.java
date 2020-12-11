@@ -23,7 +23,7 @@ public class Enemy implements Runnable  {
 		
 		
 		enemyLeft=app.loadImage("../Resources/enemyleft.png");
-		enemyRight=app.loadImage("../Resources/enemyreft.png");
+		enemyRight=app.loadImage("../Resources/enemyright.png");
 		
 		int speedEnemy = 2;
 				
