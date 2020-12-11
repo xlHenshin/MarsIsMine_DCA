@@ -32,8 +32,8 @@ public class Star {
 		app.image(star, posXStar, posYStar);	
 
 		if (moveXStar == true) {
-			posXStar = posXStar - 11;
-			System.out.println(posXStar);
+			posXStar = posXStar - 15;
+			//System.out.println(posXStar);
 		}	
 
 	} 

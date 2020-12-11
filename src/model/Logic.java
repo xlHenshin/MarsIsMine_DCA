@@ -94,7 +94,7 @@ public class Logic {
 	
 	public void newPoint() {
 		for (int i = 0; i < star.size(); i++) {
-			if (app.dist(revy.getPosXCollision(), revy.getPosY(), star.get(i).getposXStar(), star.get(i).getposYStar())<=50) {
+			if (app.dist(revy.getPosXCollision()+66, revy.getPosY()+70, star.get(i).getposXStar(), star.get(i).getposYStar())<=100) {
 				star.remove(i);
 				score = score + 100;
 			}
@@ -251,6 +251,17 @@ public class Logic {
 		}
 		
 	}
+
+	public int getScore() {
+		return score;
+	}
+
+
+
+	public void setScore(int score) {
+		this.score = score;
+	}
+
 
 
 	public LinkedList<Player> getPlayer() {

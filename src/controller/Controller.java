@@ -63,5 +63,8 @@ public class Controller {
 		logic.fallRevy(c);
 	}
 	
+	public int getScore() {
+		return logic.getScore();
+	}
 
 }
