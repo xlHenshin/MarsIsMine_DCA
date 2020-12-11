@@ -5,7 +5,7 @@ import processing.core.PImage;
 import processing.core.PVector;
 
 
-public class Revy extends Thread {
+public class Revy extends Thread implements Paintable{
 
 	private PApplet app;
 	private PImage revy;
@@ -124,7 +124,7 @@ public class Revy extends Thread {
 	}
 
 	public void setPosXCollision(int posXCollision) {
-		this.posXCollision = posXCollision;
+		this.position.x = posXCollision;
 	}
 
 
@@ -270,6 +270,12 @@ public class Revy extends Thread {
 
 	public void setFall(boolean fall) {
 		this.fall = fall;
+	}
+
+	@Override
+	public void drawChar() {
+		// TODO Auto-generated method stub
+		
 	}
 
 

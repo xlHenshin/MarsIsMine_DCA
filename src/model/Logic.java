@@ -265,10 +265,10 @@ public class Logic {
 		for (int i = 0; i < enemy.size(); i++) {
 			if (app.dist(revy.getPosXCollision()+ 80, revy.getPosY()+ 10, enemy.get(i).getPosXEnemy()+ 80 , enemy.get(i).getPosYEnemy()+ 20) <= 20) {
 				loseTouch = true;
-			}
-			if (revy.getPosXCollision()+ 80 == enemy.get(i).getPosXEnemy()-50) {
 				loseGame();
+				revy.setPosXCollision(0);
 			}
+			
 		}		
 	}
 
