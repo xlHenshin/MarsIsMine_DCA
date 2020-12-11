@@ -45,7 +45,7 @@ public class Gameplay {
 	
 	public void platformCollision() {
 		
-		if (moveScreen) {
+		if (app.dist(controlGame.getXCol()+66, controlGame.getPosY()+ 140, 519, 445)<= 20) {
 			
 		}
 		
